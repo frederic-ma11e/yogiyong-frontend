@@ -1,0 +1,56 @@
+.header {
+  width: 100%;
+  height: 78px;
+  background-color: #2AC1BC;
+  
+  .header__top {
+    margin: 0 auto;
+    max-width: 1020px;
+    height: inherit;
+    background-color: #2AC1BC;
+    
+    .logoTop {
+        float: left;
+        width: 90px;
+        height: inherit;
+        margin: 10px 20px;
+
+      .Image{
+        vertical-align: middle;
+        width: 90px;
+        height: 38px;
+      }
+    }
+    .login-top{
+      width: 299.93px;
+      height: 62px;
+      float: right;
+      margin: 5px 10px 0px 0px;
+
+      .login-top__login-button{
+        font-size: 18px;
+        float: left;
+        width: 150px;
+        height: 40px;
+        margin: 15px 0px 7px;
+        padding: 7px 0px;
+        border: 1px solid white;
+        background-color: #2AC1BC;
+        color: white;
+      }
+
+      .login-top__order-button{
+        font-size: 18px;
+        width: 130px;
+        height: 40px;
+        margin: 15px 10px 7px 5px;
+        padding: 7px 0px;
+        float: right;
+        background-color: #FF8A00;
+        color: white;
+      }
+    }
+
+  }
+}
+
