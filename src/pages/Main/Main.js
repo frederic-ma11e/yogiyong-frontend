@@ -4,9 +4,10 @@ import './Main.scss';
 function Main() {
   return (
     <div className="App">
-      MainPage
+      Main Change Test
     </div>
   );
 }
 
 export default Main;
+
