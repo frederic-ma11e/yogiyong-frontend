@@ -1,6 +1,6 @@
 import React, { Component } from './node_modules/react';
 
-class login extends Component {
+class Login extends Component {
   render() {
     return (
       <div>
@@ -10,4 +10,4 @@ class login extends Component {
   }
 }
 
-export default login;
+export default Login;
