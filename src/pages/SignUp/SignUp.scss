@@ -1,0 +1,39 @@
+.join-form {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height:1.5;
+    &__member-info {
+        margin-bottom: 10px;
+        display:block;
+    }
+    &__text-box {
+        padding: 0 0 5px;
+        font-weight: bold;
+        position: relative;
+        border: 1px solid white;
+        display:inline-block;
+    }
+    &__text-box-small {
+        margin: 0 0 10px;
+        opacity: 0.8;
+    }
+    &__phone-verification {
+        display:block;
+    }
+    // &__terms-button {
+    //     background-color: white;
+    //     border: 1px solid black;
+    // }
+    &__terms-span {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        margin: -3px 5px 0 0;
+        vertical-align: middle;
+        // background:
+        background-size: 24px;
+        cursor: pointer;
+    }
+}
+
