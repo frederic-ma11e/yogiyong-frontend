@@ -11,7 +11,7 @@ function Main() {
       <Header /> 
       <SearchContainer />
       <CategoryContainer />
-      <Footer/>
+      <Footer />
     </div>
   );
 }
