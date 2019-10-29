@@ -1,8 +1,7 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import "./Header.scss";
-import "../../Styles/common.scss";
-import logo from "../../Images/logo.png";
+import "Styles/common.scss";
+import logo from "Images/logo.png";
 
 const Header = () => {
   return (

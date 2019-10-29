@@ -1,11 +1,17 @@
 import React from 'react';
 import './Main.scss';
-import Header from '../Header'
+import Header from '../../Components/Header'
+import SearchContainer from '../../Components/SearchContainer'
+import CategoryContainer from '../../Components/CategoryContainer'
+import Footer from '../../Components/Footer'
 
 function Main() {
   return (
-    <div >
-      <Header/>
+    <div>
+      <Header /> 
+      <SearchContainer />
+      <CategoryContainer />
+      <Footer/>
     </div>
   );
 }
