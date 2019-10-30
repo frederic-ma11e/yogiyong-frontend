@@ -7,11 +7,11 @@ const FooterServiceInfo =() =>{
       <div className="service-info">
         <div className="service-info-bpg">
           <img src={footerImgae} className="footer-image" />
-          <span>요기요 안심센터</span>
+          <span>요기요<br/>안심센터</span>
         </div>
         <div className="service-info-clean">
           <img src={footerImgae2} className="footer-image" />
-          <span>요기요100% 클린리뷰</span>
+          <span>요기요100%<br/>클린리뷰</span>
         </div>
         <div className="service-info-csc">
           <em>고객 만족센터</em>
