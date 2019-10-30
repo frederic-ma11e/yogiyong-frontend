@@ -49,7 +49,7 @@ class SignUp extends React.Component {
                     <MemberInfo data={this.state.personalInformation} />
                 </div>
                 <div className="join-form__phone-verification">
-                    <strong className="join-form__text-box">회원정보 입력</strong>
+                    <strong className="join-form__text-box">휴대폰 인증</strong>
                     <PhoneInfo data={this.state.phoneInformation} />
                     <p className="join-form__text-box-small">    인증번호가 도착하지 않았을 경우 '인증'버튼을 다시 눌러주세요. </p>
                 </div>
