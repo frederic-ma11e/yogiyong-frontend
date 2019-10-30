@@ -7,7 +7,7 @@ class CategoryInfoList extends Component {
     const list = data.map((info, index) => (
       <CategoryInfo key={index} data={info} />
     ));
-    return <div onClick={this.handleClick} >{list}</div>;
+    return <div>{list}</div>;
   }
 }
 
