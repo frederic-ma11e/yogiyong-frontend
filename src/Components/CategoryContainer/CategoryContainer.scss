@@ -1,5 +1,52 @@
-.CategoryContainer{
+.category-container{
   width: 100%;
-  height: 945px;
-  background-color: yellow;
+  overflow:auto; 
+  padding: 0px 0px 15px;
+  background-color: #FAFAFA;
+  
+  &__row {
+    max-width: 1020px;
+    height: 100%;
+    margin: 0px auto;
+    padding: 5px;
+  
+    &--block {
+      float: left;
+      width: 252.5px;
+      height: 230px;
+      padding: 0px 5px;
+      position: relative;
+      
+      .category-container--a{
+        width: 242.5px;
+        height: 220px;
+        border: 1px solid #d9d9d9;
+        background-color: #ffffff;
+        margin:5px 0px;
+        cursor: pointer;
+        
+        .category-title{
+          position: absolute;
+          height: 21.6px;
+          font-size: 15.4px;
+          font-family: 맑은고딕;
+          font-weight: bold;
+          width: auto ;
+          color: #333333;
+          top: 21px;
+          left: 23px;
+          z-index: 1;
+        }
+
+        .category-image {
+          width: 218px;
+          height: 218px;
+          position: absolute;
+          right: 6px;
+          bottom: 6px;
+
+        }
+      }
+    }
+  }
 }
