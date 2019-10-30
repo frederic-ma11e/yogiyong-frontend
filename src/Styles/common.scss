@@ -1,7 +1,8 @@
 * {
   box-sizing: border-box;
   padding: 0px;
-  margin: 0px;
+  margin: 0px;    
+  outline: none;
   a {
     margin: 0px;
     text-decoration: none;
@@ -9,7 +10,7 @@
   button {
     border: 0;
     cursor: pointer;
-    outline: none;
+
   }
   /*reset ul 추가*/
   ul {
