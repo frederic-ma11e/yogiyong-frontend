@@ -1,8 +1,21 @@
 * {
   box-sizing: border-box;
   padding: 0px;
-  margin: 0px;
+  margin: 0px;    
+  outline: none;
   a {
+    margin: 0px;
     text-decoration: none;
   }  
+  button {
+    border: 0;
+    cursor: pointer;
+
+  }
+  /*reset ul 추가*/
+  ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  }
 }

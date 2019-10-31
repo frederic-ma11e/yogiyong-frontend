@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-export class Login_CheckBox extends Component {
+
+export class LoginCheckBox extends Component {
     constructor(){
         super()
         this.state={
@@ -22,8 +23,8 @@ export class Login_CheckBox extends Component {
             <div className="login__checkbox">
                 <label className="login__autologin" onClick={this.hideSpan} >
                     {/*</label><input type="checkbox"></input>*/}
-                    <span />
-                    {this.state.hideValue && <span className="hideImg" />}
+                    <span className={this.state.hideValue ? 'hideImg':''} />
+                    {/* {this.state.hideValue && <span className="hideImg" />} */}
                     자동 로그인
                 </label>
 
@@ -37,4 +38,4 @@ export class Login_CheckBox extends Component {
     }
 }
 
-export default Login_CheckBox
+export default LoginCheckBox

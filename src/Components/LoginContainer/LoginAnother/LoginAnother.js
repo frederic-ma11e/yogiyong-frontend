@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class Login_another extends Component {
+export class LoginAnother extends Component {
     render() {
         return (
             <div className="another_box">
@@ -11,4 +11,4 @@ export class Login_another extends Component {
     }
 }
 
-export default Login_another
+export default LoginAnother

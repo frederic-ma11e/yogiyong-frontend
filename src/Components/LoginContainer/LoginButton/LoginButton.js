@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-  class Login_button extends Component{
+  class LoginButton extends Component{
     
     handleClick=(e)=>{
         this.props.onClick(e);
@@ -14,4 +14,4 @@ import React, { Component } from 'react'
 }
 }
 
-export default Login_button
+export default LoginButton

@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-
 import './Login.scss';
-import Login_form from './Login-form/Login_form';
-// import Login_CheckBox from './Check-box/Login_CheckBox';
-// import Login_button from './Login-botton/Login_button';
-import Login_another from './Login-another/Login_another';
-import Signup from './Signup/Signup';
+import Header from '../../Components/Header';
+import LoginForm from '../../Components/LoginContainer/LoginForm/LoginForm';
+import LoginAnother from '../../Components/LoginContainer/LoginAnother/LoginAnother';
+import SignUpLink from '../../Components/LoginContainer/SignUpLink/SignUpLink';
 
 class Login extends Component {
 
   render() {
-
-
     return (
-      <div className="login-container">
-        <div className="login-container__form">
-          <div className="logoImg"></div>
-          <Login_form/>
+      <div>
+        <Header />
+        <div className="login-container">
+          <div className="login-container__form">
+            <div className="logoImg"></div>
+            <LoginForm />
+          </div>
+          <LoginAnother />
+          <SignUpLink />
         </div>
-        <Login_another />
-        <Signup />
       </div>
     );
   }

@@ -1,0 +1,55 @@
+@import '../../Styles/color.scss';
+@import '../../Styles/reset.scss';
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 14px;   
+}
+
+.restaurantContainer{
+    max-width: 680px;
+    padding: 10px;
+}
+
+.restaurant{
+    border: 1px solid $font--grey;
+    width: 100%;
+    // margin-left: auto;
+    // margin-right: auto;
+    &__title{
+        border: 1px solid $font--grey;
+        padding: 10px;
+        }
+    &__Info{
+         color: $font--grey;
+        border: 1px solid $font--grey;
+        padding: 10px;
+        min-height: 120px;
+        //position: flex;
+        img{
+            background-image: url('../../Images/category-02.png');
+            background-size: 80px;
+            //position: flex;
+            width: 80px;
+            height: 80px;
+            float: left;
+            //border: 1px solid $font--grey;
+        }
+        ul{
+            width: 80%;
+            //position: flex;
+            float: left;
+            min-height: 80px;
+            margin-left: 10px;
+            
+            li{
+                line-height: 1.7em;
+                padding: 5px 0 0 0;
+                font-size: 12px;            }
+        }
+    }
+    
+}
