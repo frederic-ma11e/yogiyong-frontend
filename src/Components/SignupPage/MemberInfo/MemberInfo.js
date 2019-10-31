@@ -2,6 +2,28 @@ import React from 'react';
 import '../InputListGroup.scss'
 
 class MemberInfo extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+                    id: 0,
+                    email: "",
+                    pwd: "",
+                    repwd: "",
+                    nickname: ""
+                }
+    }
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+        // this.props.onInput(this.state)
+    }
+    // handleInsert = (data) => {
+    //     // const { inputInformation } = this.state
+    //     this.setState({
+    //         inputInformation: this.state.inputInformation.concat({ id: this.id++, ...data })
+    //     })
+    // }
     render() {
         //  비밀번호 경고창 로직 구현1 but 컴파일 에러: cannot read property of length; --> 해결 완료
         const copiedState = this.state;
