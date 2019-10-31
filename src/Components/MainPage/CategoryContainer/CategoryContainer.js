@@ -3,7 +3,6 @@ import "./CategoryContainer.scss";
 import "Styles/common.scss";
 import data from "Data/categoryMenu.js";
 import CategoryInfoList from "./CategoryInfoList";
-
 class CategoryContainer extends Component {
   state = {
     info: data.info

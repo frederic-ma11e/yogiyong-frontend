@@ -1,3 +1,18 @@
+import image1 from '../Images/category-01.png'
+import image2 from '../Images/category-02.png'
+import image3 from '../Images/category-03.png'
+import image4 from '../Images/category-04.png'
+import image5 from '../Images/category-05.png'
+import image6 from '../Images/category-06.png'
+import image7 from '../Images/category-07.png'
+import image8 from '../Images/category-08.png'
+import image9 from '../Images/category-09.png'
+import image10 from '../Images/category-10.png'
+import image11 from '../Images/category-11.png'
+import image12 from '../Images/category-12.png'
+import image13 from '../Images/category-13.png'
+/*위에 image improt 안하면 이미지가 깨지는 오류 나서 추가했습니다*/
+
 const categoryMenu ={
   info: [
     {
