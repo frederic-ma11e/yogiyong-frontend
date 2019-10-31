@@ -8,7 +8,7 @@ class TermsAndContion extends React.Component {
             <label className="join-form__terms-label" for="1">
                 <span className="join-form__terms-span"></span>
                 {this.props.text}
-                <a href = {this.props.link} target = "_blank">내용보기 ></a> 
+                <a className = "join-form__terms-link" href = {this.props.link} target = "_blank">내용보기 ></a> 
             </label>
         </div>
         )
