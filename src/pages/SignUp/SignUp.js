@@ -7,22 +7,27 @@ class SignUp extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            personalInformation: [
+            memberInformation :[
                 {
                     placeholder: "(필수) 이메일 주소 입력",
-                    type: "text"
+                    type: "text",
+                    name: "email",
+    
                 },
                 {
                     placeholder: "(필수) 비밀번호 입력",
-                    type: "password"
+                    type: "password",
+                    name: "pwd",
                 },
                 {
                     placeholder: "(필수) 비밀번호 재확인",
-                    type: "password"
+                    type: "password",
+                    name: "repwd",
                 },
                 {
                     placeholder: "(선택) 닉네임 입력",
-                    type: "text"
+                    type: "text",
+                    name: "nickname",
                 }
             ],
             phoneInformation: [
@@ -38,15 +43,7 @@ class SignUp extends React.Component {
                     text: "확인",
                     buttonType: "button"
                 }
-            ],
-            alertMssg:
-            {
-                eMailAlert: "유효한 이메일 주소 형식이 아닙니다",
-                pwdAlert1: "비밀번호는 8자 이상입니다.",
-                pwdAlert2: "비밀번호는 숫자,영문,특수문자를 포함하여야 합니다."
-
-            }
-
+            ]
         };
     }
     render() {
@@ -55,10 +52,7 @@ class SignUp extends React.Component {
                 <div className="join-form">
                     <div className="join-form__member-info">
                         <strong className="join-form__text-box">회원정보 입력</strong>
-                        <MemberInfo data={this.state.personalInformation} />
-                        <span className="join-form__member-info__alert-msg">
-                            {this.state.alertMssg.eMailAlert}
-                        </span>
+                        <MemberInfo data = {this.state.memberInformation} />
                     </div>
                     <div className="join-form__phone-verification">
                         <strong className="join-form__text-box">휴대폰 인증</strong>
