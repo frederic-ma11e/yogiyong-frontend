@@ -16,8 +16,8 @@ class FooterMenu extends Component {
         <ul className="footer-menu-ul">
           {list}
           <li className="sns-link">
-            <a><img src={facebookImage} className="facebook-icon" />페이스북</a>
-            <a><img src={naverblogImage} className="naver-blog-icon" />블로그</a>
+            <span><img src={facebookImage} className="facebook-icon" />페이스북</span>
+            <span><img src={naverblogImage} className="naver-blog-icon" />블로그</span>
           </li>
         </ul>
       </div>
