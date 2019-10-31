@@ -1,1 +1,1 @@
-export { default } from 'PhoneInfo.js'
+export { default } from 'PhoneInfo'

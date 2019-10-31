@@ -1,6 +1,7 @@
 import React from 'react';
 import '../InputListGroup.scss'
 class PhoneInfo extends React.Component {
+    
     render() {
         return (
             <ul className="join-form__input-list-group">
