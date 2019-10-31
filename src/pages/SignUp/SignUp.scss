@@ -66,6 +66,7 @@
             // margin-top: 3px;
             background-color:white;
             padding: 8px 0 5px 13px;
+            position: relative;
         }
     }
     &__submit-bttn {
@@ -94,6 +95,7 @@ input.join-form__terms-button {
     border-radius: 50px;
     box-shadow: inset -20px 0 0 0 #fff;
     cursor:pointer;
+    left: 5px;
 }
 
 input.join-form__terms-button:after {
@@ -115,9 +117,9 @@ input.join-form__terms-button:checked:after {
     left: 20px;
     box-shadow: -2px 4px 3px rgba(0,0,0,0.05);
 }
-a {
+.join-form__terms-link {
     position: absolute;
-    right: 330px;
+    right: 10px;
     text-decoration: none;
     cursor: pointer;
     color: #999;
