@@ -1,8 +1,8 @@
 import React from 'react';
 import './SignUp.scss';
 import MemberInfo from '../../Components/SignupPage/MemberInfo/MemberInfo.js'
-import PhoneInfo from '../../Components/SignupPage/PhoneInfo/PhoneInfo.js'
-import TermsAndCondition from '../../Components/SignupPage/TermsAndCondition/TermsAndCondition.js'
+import PhoneInfo from '../../Components/SignupPage/PhoneInfo/PhoneInfo'
+import TermsAndCondition from '../../Components/SignupPage/TermsAndCondition/TermsAndCondition'
 class SignUp extends React.Component {
     constructor(props) {
         super(props)

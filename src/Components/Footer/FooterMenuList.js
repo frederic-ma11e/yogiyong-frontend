@@ -6,7 +6,7 @@ class FooterMenuList extends Component {
     return (
       <div>
         <li className="footer-menu-li">
-          <a>{title}</a>
+          <span className="title">{title}</span>
           <span>{line}</span>
         </li>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.scss";
 import "Styles/common.scss";
-import logo from "Images/logo.png";
+import logo from "Images/logo-yogiyo.png";
 
 const Header = () => {
   return (
