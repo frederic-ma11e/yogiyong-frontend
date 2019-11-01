@@ -14,8 +14,8 @@ class MemberInfo extends React.Component {
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
-        })
-        this.props.onSave(this.state)
+        },()=> (this.props.onSave(this.state)))
+
         // this.props.onInput(this.state)
     }
 

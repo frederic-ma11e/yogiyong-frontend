@@ -44,29 +44,74 @@ class SignUp extends React.Component {
                     buttonType: "button"
                 }
             ],
-            personalInformation: [
-            ]
+            personalInformation: {
+                id: "",
+                pwd: "",
+                repwd: "",
+                nickname: ""
+            }
         };
     }
 
     handleSave = (data) => {
         this.setState({
-            personalInformation: this.state.personalInformation.concat({ data })
+            personalInformation: data
         })
     }
 
+    handleCheck = (event) => {
+        // console.log(this.state.information.pwd)
+        event.preventDefault();
+        const { personalInformation } = this.state
+        if (personalInformation.pwd === personalInformation.repwd) {
+            return fetch('http://10.58.2.201:8004/user/signup', {
+            method: 'POST',
+            header: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                'email': this.state.personalInformation.email,
+                'password': this.state.personalInformation.pwd,
+                'nickname': this.state.personalInformation.nickname
+            })
+        })
+            .then(response => response.json())
+            .then(response => console.log(response))
+        }
+    }
+
+    // handleSubmit = () => {
+    //     fetch('http://10.58.2.201:8004/user/signup', {
+    //         method: 'POST',
+    //         header: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({
+    //             'email': this.state.personalInformation[0].email,
+    //             'password': this.state.personalInformation[0].pwd,
+    //             'nickname': this.state.personalInformation[0].nickname
+    //         })
+    //     })
+    //         .then(response => response.json())
+    //         .then(response => console.log(response))
+    // }
+
 
     render() {
-        console.log(this.state.personalInformation)
+        console.log('email=====', this.state.personalInformation.email)
+        console.log('pwd=====', this.state.personalInformation.pwd)
+        console.log('repwd=====', this.state.personalInformation.repwd)
+        console.log('nickname=====', this.state.personalInformation.nickname)
+        console.log('render=====', this.state.personalInformation)
         return (
             <div className="join-form-container">
                 <form >
                     <div className="join-form">
                         <div className="join-form__member-info">
                             <strong className="join-form__text-box">회원정보 입력</strong>
-                            <MemberInfo 
-                            data={this.state.memberInformation}
-                            onSave = {this.handleSave} />
+                            <MemberInfo
+                                data={this.state.memberInformation}
+                                onSave={this.handleSave} />
                         </div>
                         <div className="join-form__phone-verification">
                             <strong className="join-form__text-box">휴대폰 인증</strong>
@@ -91,7 +136,7 @@ class SignUp extends React.Component {
                                 요기요 혜택알림 동의 (선택)
                     </label>
                         </div>
-                        <button className="join-form__submit-bttn">회원가입 완료</button>
+                        <button className="join-form__submit-bttn" onClick={this.handleCheck}>회원가입 완료</button>
                     </div>
                 </form>
             </div>
