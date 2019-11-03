@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Main from "../src/pages/Main/index.js";
-import Login from "../src/pages/Login/index.js";
+import Main from "./pages/Main";
+import Login from "./pages/Login";
 import SignUp from './pages/SignUp';
-import RestaurantInfo from "./pages/RestautantInfo/index.js";
+import RestaurantInfo from "./pages/RestaurantInfo";
 
 class Routes extends React.Component {
   render() {
