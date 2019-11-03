@@ -1,15 +1,15 @@
 .store-list__store{ 
     display: flex;
     flex-direction: row;
-    padding: 10px 5px;
+    padding: 15px 10px;
     // position: relative;
     // width: 50%;
     &-container {
         display: flex;
         border: 1px solid #d9d9d9;
         width: 49%;
-        justify-content: space-between
-
+        justify-content: space-between;
+        margin-top: 10px;
     }
 
     &-logo {

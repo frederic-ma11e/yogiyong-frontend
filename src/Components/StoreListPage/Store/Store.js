@@ -1,90 +1,48 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import StoreInformation from '../StoreInformation/StoreInformation.js'
 import './Store.scss'
-import Image from '../../../Images/store1.jpg'
+import StoreCategories from '../StoreCategories/StoreCategories.js'
 
 class Store extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            storeInformation: [
-                {
-                    storeLogo: Image ,
-                    storeName: "직화반상 by셰플리 (강남)",
-                    storeRate: "4.5",
-                    storeReview: "1126",
-                    storeReply: "1062",
-                    storePayMethod: "요기서 결제",
-                    storeMinPrice: "8,000",
-                    storeTagDiscount: "",
-                    storeTagCesco: "",
-                    sotreTagAdditionalDiscount: "",
-                    storeDelivTime: "40~50분",
-                },
-                {
-                    storeLogo:  Image ,
-                    storeName: "직화반상 by셰플리 (강남)",
-                    storeRate: "4.5",
-                    storeReview: "1126",
-                    storeReply: "1062",
-                    storePayMethod: "요기서 결제",
-                    storeMinPrice: "8,000",
-                    storeTagDiscount: "",
-                    storeTagCesco: "",
-                    sotreTagAdditionalDiscount: "",
-                    storeDelivTime: "40~50분",
-                },
-                {
-                    storeLogo:  Image ,
-                    storeName: "직화반상 by셰플리 (강남)",
-                    storeRate: "4.5",
-                    storeReview: "1126",
-                    storeReply: "1062",
-                    storePayMethod: "요기서 결제",
-                    storeMinPrice: "8,000",
-                    storeTagDiscount: "",
-                    storeTagCesco: "",
-                    sotreTagAdditionalDiscount: "",
-                    storeDelivTime: "40~50분",
-                },
-                {
-                    storeLogo: Image,
-                    storeName: "직화반상 by셰플리 (강남)",
-                    storeRate: "4.5",
-                    storeReview: "1126",
-                    storeReply: "1062",
-                    storePayMethod: "요기서 결제",
-                    storeMinPrice: "8,000",
-                    storeTagDiscount: "",
-                    storeTagCesco: "",
-                    sotreTagAdditionalDiscount: "",
-                    storeDelivTime: "40~50분",
-                },
-                {
-                    storeLogo: Image,
-                    storeName: "직화반상 by셰플리 (강남)",
-                    storeRate: "4.5",
-                    storeReview: "1126",
-                    storeReply: "1062",
-                    storePayMethod: "요기서 결제",
-                    storeMinPrice: "8,000",
-                    storeTagDiscount: "",
-                    storeTagCesco: "",
-                    sotreTagAdditionalDiscount: "",
-                    storeDelivTime: "40~50분",
-                },
+            restaurants: [
             ]
         }
     }
+
+    componentDidMount() {
+        fetch('http://10.58.5.84:8000/restaurant/category/1')
+            .then(res => res.json())
+            // .then( res => console.log(res))
+            .then(res =>
+                // .then( res => res.map( info => 
+                this.setState(
+                    res
+                )
+            )
+        // .then(response => response.json())
+        // .then(response => console.log(response))
+        console.log("111111======", this.state)
+    }
+
     render() {
+        console.log("2222====", this.state)
         return (
-            <div className="experiment">
-                {this.state.storeInformation.map((info, index) => (
-                    <StoreInformation key={index} data={info} />
-                ))}
-                {/* <StoreInformation data={this.state.storeInformation}/>
+            <Fragment>
+                <nav>
+                    <StoreCategories />
+                </nav>
+                
+                <div className="experiment">
+                    {this.state.restaurants.map((info, index) => (
+                        <StoreInformation key={index} data={info} />
+                    ))}
+                    {/* <StoreInformation data={this.state.storeInformation}/>
                 <StoreInformation /> */}
-            </div>
+                </div>
+            </Fragment>
 
         )
     }
