@@ -7,7 +7,6 @@ class RestaurantInfoCategory extends Component {
     const list = data.map((info, index) => (
       <RestaurantInfoCList key={index} info={info} />
     ));
-    
     return <div>{list}</div>;
   }
 }

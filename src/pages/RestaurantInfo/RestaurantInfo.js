@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "../../Components/Header";
 import "./RestaurantInfo.scss";
 import data from "Data/restaurantInfoCategory";
-import RestaurantInfoCategory from "Components/RestaurantInfoPage/RestaurantInfo-Category/RestaurantInfoCategory";
+import RestaurantInfoCategory from "Components/RestaurantInfoCategory";
 import Footer from "../../Components/Footer";
 
 export class RestaurantInfo extends Component {

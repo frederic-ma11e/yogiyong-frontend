@@ -3,7 +3,7 @@ import menu1 from '../Images/menu1.png'
 const restaurantInfoCategory = {
   category: [
     {
-      mode:"none",
+      mode:false,
       title: "인기메뉴",
       menu: [
         {
@@ -19,7 +19,7 @@ const restaurantInfoCategory = {
       ]
     },
     {
-      mode:"none",
+      mode:false,
       title: "스페셜치킨",
       menu: [
         {
@@ -35,7 +35,7 @@ const restaurantInfoCategory = {
       ]
     },
     {
-      mode:"none",
+      mode:false,
       title: "치킨",
       menu: [
         {
