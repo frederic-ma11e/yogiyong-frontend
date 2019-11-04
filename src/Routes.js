@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Main from "../src/pages/Main/index.js";
 import Login from "../src/pages/Login/index.js";
 import SignUp from './pages/SignUp/index.js';
-import RestaurantInfo from "./pages/RestautantInfo/index.js";
+import RestaurantInfo from "./pages/RestaurantInfo/index.js";
 import StoreList from "./pages/StoreList/index.js"
 
 
