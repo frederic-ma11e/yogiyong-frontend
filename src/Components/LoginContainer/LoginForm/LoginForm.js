@@ -76,7 +76,10 @@ export class LoginForm extends Component {
                     </li>
                 </ul>
                 <LoginCheckBox />
-                <LoginButton onClick= {this.checkPwvalue}/>
+                <LoginButton 
+                idvalue={idvalue}
+                pwvalue={pwvalue}
+                onClick= {this.checkPwvalue}/>
              
             </div>
         )
