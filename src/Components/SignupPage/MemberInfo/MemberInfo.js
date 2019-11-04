@@ -5,7 +5,6 @@ class MemberInfo extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-                    id: 0,
                     email: "",
                     pwd: "",
                     repwd: "",
@@ -15,9 +14,11 @@ class MemberInfo extends React.Component {
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
-        })
+        },()=> (this.props.onSave(this.state)))
+
         // this.props.onInput(this.state)
     }
+
     // handleInsert = (data) => {
     //     // const { inputInformation } = this.state
     //     this.setState({
