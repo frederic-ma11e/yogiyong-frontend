@@ -82,15 +82,16 @@ class Store extends React.Component {
         fetch('http://10.58.2.209:8000/restaurant/category/1/order_by/general')
             .then(res => res.json())
             // .then( res => console.log(res))
-            .then(res =>
+            .then(res => {
+
                 // .then( res => res.map( info => 
-                this.setState(
-                    res
-                )
-            )
-    //     // .then(response => response.json())
-    //     // .then(response => console.log(response))
-    //     console.log("111111======", this.state)
+                this.setState({
+                    restaurants: res.restaurants
+                })
+            })
+        //     // .then(response => response.json())
+        //     // .then(response => console.log(response))
+        //     console.log("111111======", this.state)
     }
 
     render() {
@@ -100,7 +101,7 @@ class Store extends React.Component {
                 <div className="store-list__category">
                     <StoreCategories />
                 </div>
-                
+
                 <div className="store-list">
                     {this.state.restaurants.map((info, index) => (
                         <StoreInformation key={index} data={info} />
