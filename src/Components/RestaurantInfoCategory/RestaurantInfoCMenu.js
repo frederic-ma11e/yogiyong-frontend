@@ -5,18 +5,26 @@ class RestaurantInfoCMenu extends Component {
     console.log(this.props.info.title,"click")
   }
   render() {
-    const { title, price, imgUrl }=this.props.info
+    const { name, price, image, description }=this.props.info
+    const floorPrice = Math.floor(price)// 가격 값이 12900.00 뒤에 소수점까지 넘어와서 이렇게 처리했습니다/
     return (
       <li className="restaurantInfo-category-menu" onClick = {this.handleClick}>
         <td className="restaurantInfo-category-menu__text">
           <div className="restaurantInfo-category-menu__text--name">
-            {title}
+            {name}
+          </div>
+          <div className="restaurantInfo-category-menu__text--desc">
+            {description}
           </div>
           <div className="restaurantInfo-category-menu__text--price">
-            {price}원
+            {floorPrice}원
           </div>
         </td>
-        <img className="restaurantInfo-category-menu__photo" src={imgUrl} alt="음식 사진" /> 
+        <div style={{display:image?"":"none"}}>
+          <img className="restaurantInfo-category-menu__photo" src={image} alt="" style={{border:0}}/> 
+        </div>
+        
+         
       </li>
     );
   }

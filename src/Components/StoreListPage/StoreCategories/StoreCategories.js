@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import {Link} from 'react-router-dom';
 import Magnifier from '../../../Images/magnifier.png'
 import './StoreCategories.scss'
 class StoreCategories extends React.Component {
@@ -23,9 +24,10 @@ class StoreCategories extends React.Component {
                 </div>
                 <div>
                     <label id="1">
-                        <div id="1">
+                        <Link id="1" to={'/'
+                        }>
                             1인분 주문
-                        </div>
+                        </Link>
                     </label>
                 </div>
                 <div>

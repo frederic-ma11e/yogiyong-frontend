@@ -6,7 +6,7 @@ class RestaurantInfoCList extends Component {
     super(props);
 
     this.state = {
-      displayMode: props.info.mode,
+      displayMode: false,
       position: ""
     };
   }
@@ -17,9 +17,10 @@ class RestaurantInfoCList extends Component {
     else this.setState({ displayMode: false, position: "-149px -43px" });
   };
   render() {
-    const { title, menu, id } = this.props.info;
+    const { title, menus, id } = this.props.info;
     const { displayMode, position } = this.state;
-    const categoryList = menu.map((info, index) => (
+   title.replace("Top 10",'인기 메뉴')
+    const categoryList = menus.map((info, index) => (
       <RestaurantInfoCMenu key={index} info={info} />
     ));
     return (

@@ -1,0 +1,180 @@
+.food-order-container {
+  max-width: 680px;
+  padding: 20px 10px 30px;
+  min-height: 468px;
+
+  &__title{
+    width: inherit;
+    height: 41.6px;
+    background-color: #333333;
+    padding: 10px 10px 10px 15px;
+    color: #ffffff;
+    font-size: 15.4px;
+    font-family: 맑은고딕;
+
+    span {
+      height: inherit;
+      vertical-align: middle;
+    }
+  }
+  .panel-heading{
+    width: inherit;
+    height: 39px;
+    padding: 10px 15px;
+    background-color: #E6E6E6;
+    border:1px solid #ddd;
+    cursor: pointer;
+  }
+  .arrow-icon{
+    width: 16px;
+    height: 16px;
+    background-position: -149px -43px;
+    background-image: url('../../../Images/sprite-icon.png');
+    background-repeat: no-repeat;
+    background-size: 350px;
+    float: right;
+  }
+
+  .panel-body{
+    width: inherit;
+    padding: 15px;
+    border:1px solid #ddd;
+
+
+    &__form{
+      width: inherit;
+      
+      &--group{
+        width: 100%;
+        height: 34px;
+        margin: 0px -15px 15px;
+        &--label{
+          display: inline-block;
+          width:  16%;
+          height: 30px;
+          font-size: 14px;
+          font-weight: bold;
+          padding: 7px 0px 3px;
+          color: #333333;
+          text-align: right;
+        }
+
+        &--box {
+          float: right;
+          width: 84%;
+          height: 34px;
+          color: #333333;
+          padding: 0px 15px;
+
+          input {
+            width:100%;
+            height: 100%;
+            float: right;
+
+            
+            }
+            input::placeholder {
+              color: rgb(134, 134, 134);
+              font-size: 15px;
+              font-family: 맑은고딕;
+            }
+        }
+      }
+    }
+
+    .textarea{
+      padding:6px 12px;
+      color: rgb(134, 134, 134);
+      font-size: 14px;
+      font-family: 맑은고딕;
+    }
+
+    .pay-title{
+      display: inline-block;
+      color: #333333;
+      font-size: 15px;
+      font-family: 맑은고딕;
+      padding:0px 0px 0px 5px;
+      font-weight: bold;
+    }
+    .pay-desc{
+      display: inline-block;
+      color: #999999;
+      font-size: 12px;
+      font-family: 맑은고딕;
+    }
+
+    .collect-card{
+      width: 100%;
+      display: flex;
+    }
+    .pay-card{
+      display: block;
+      background-color: #fff;
+      color: #333;
+      width: calc(50% - 4px);
+      line-height: 20px;
+      padding: 16px 12px 13px 12px;
+      text-align: center;
+      margin-top: 7px;
+      margin-right: 7px;
+      cursor: pointer;
+      
+      
+    }
+    .pay-money{
+      display: block;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      color: #333;
+      width: calc(50% - 4px);
+      line-height: 20px;
+      padding: 16px 12px 13px 12px;
+      text-align: center;
+      margin-top: 7px;
+      margin-right: 7px;
+      cursor: pointer;
+    }
+
+    .active{
+      border: 1px solid #f0001e;
+      } 
+      .noneActive{
+
+        border: 1px solid #ccc;
+      }
+
+    .card-img{
+      width: 22px;
+      height: 22px;
+      background-position: -68px -49px;
+      background-size: 132px;
+      background-image: url("../../../Images/img-ic-pay-sprites.png");
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .card-active-img{
+      background-position: -68px -49px;
+    }
+    .card-noneActive-img{
+      background-position: -37px -49px;
+      
+    }
+    .money-img{
+      width: 24px;
+      height: 22px;
+      background-position: -40px -9px;
+      background-size: 132px;
+      background-image: url("../../../Images/img-ic-pay-sprites.png");
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .money-active-img{
+      background-position: -5px -9px;
+    }
+    .money-noneActive-img{
+      background-position: -40px -9px;
+    }
+  }
+}
+

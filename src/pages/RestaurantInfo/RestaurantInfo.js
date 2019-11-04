@@ -5,15 +5,7 @@ import data from "Data/restaurantInfoCategory";
 import RestaurantInfoCategory from "Components/RestaurantInfoCategory";
 import Footer from "../../Components/Footer";
 
-export class RestaurantInfo extends Component {
-  constructor() {
-    super();
-    this.state = {
-      price: "",
-      data: data.category
-    };
-  }
-
+export class RestaurantInfo extends Component {  
   render() {
     return (
       <div>
@@ -47,7 +39,7 @@ export class RestaurantInfo extends Component {
           </div>
         </div>
 
-        <RestaurantInfoCategory data={this.state.data} />
+        <RestaurantInfoCategory/>
         <Footer />
       </div>
     );
