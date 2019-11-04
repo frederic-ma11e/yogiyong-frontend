@@ -11,8 +11,8 @@ class StoreList extends React.Component {
 
     render() {
         return (
-            <div className="store-list-background" >
-                <div className="store-list-container">
+            <div>
+                <div>
                     <Store />
                 </div>
             </div>
