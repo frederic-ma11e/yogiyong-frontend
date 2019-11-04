@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Login.scss';
+import './login.scss';
 import Header from '../../Components/Header';
 import LoginForm from '../../Components/LoginContainer/LoginForm/LoginForm';
 import LoginAnother from '../../Components/LoginContainer/LoginAnother/LoginAnother';
