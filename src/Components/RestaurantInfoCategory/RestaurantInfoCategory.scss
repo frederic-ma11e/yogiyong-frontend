@@ -45,6 +45,13 @@
       padding: 5px 0px 0px;
     }
 
+    &--desc{
+      color: #999999;
+      font-size: 12.6px;
+      font-family: 맑은고딕;
+      padding: 5px 0px 5px 0px;
+    }
+
     &--price{
       color: #333333;
       font-size: 15.4px;
@@ -55,5 +62,6 @@
   &__photo{
     width: 112px;
     height: 80px;
+    border: 0;
   }
 }
