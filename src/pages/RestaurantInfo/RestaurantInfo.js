@@ -5,6 +5,7 @@ import HorizonMenu from '../../Components/RestaurantInfoPage/HorizonMenu'
 import Infodetail from '../../Components/RestaurantInfoPage/Infodetail'
 import PhotoMenuContainer from '../../Components/RestaurantInfoPage/PhotoMenuContainer'
 import '../../Components/RestaurantInfoPage/HorizonMenu.scss'
+import RestaurantInfoCategory from '../../Components/RestaurantInfoCategory'
 
 
 export class RestaurantInfo extends Component {

@@ -1,1 +1,1 @@
-export { default } from 'TermsAndCondition'
+export { default } from 'TermsAndCondition.js'
