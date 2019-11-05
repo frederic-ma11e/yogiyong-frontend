@@ -138,4 +138,4 @@ class StoreList extends React.Component {
         )
     }
 };
-export default StoreList;
+export default withRouter(StoreList);
