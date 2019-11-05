@@ -1,0 +1,77 @@
+@import '../../Styles/color.scss';
+@import '../../Styles/reset.scss';
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 14px;   
+}
+
+.menuContainer{
+    margin-top: 15px;
+    border: 1px solid $font--lightgrey; 
+
+    .menuTab{
+        &__ul{
+            display: flex;
+            background-color: #fff;
+            li{
+                border-left: 1px solid $font--lightgrey;
+                width: 33.3%;
+                text-align: center;
+                padding: 12px 0;
+                // display: inline-block;
+                
+                a{
+                    margin: auto;   
+                }
+                span{
+                    margin-left: 5px;
+                    font-size: 12px;
+                    // display: inline-block;
+                }
+            }
+        }
+    }
+    .photoMenuContainer{
+        min-height: 205px;
+        border-top: 1px solid $font--lightgrey;
+        padding: 15px;
+        overflow: hidden;
+        
+        &__div{
+            border: 1px solid $font--lightgrey;
+            max-width: 138px;
+            background-color: #fff;
+            margin-right: 8px;
+            
+            .menuImg{
+                background-image: url('../../Images/menu1.jpg');
+                background-size: cover;
+                width: 136px;
+                height: 98px
+                
+            }
+            .menuName{
+                padding: 8px 0 8px 14px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                font-weight: bold;
+            }
+            .menuPrice{
+                padding: 0 0 8px 14px;
+                color: $font--grey;
+            }
+        }
+    }
+    .buttonColorRed{
+        color: red;
+        font-weight: 600;
+        border-bottom: 3px solid red;
+    }
+
+}
+
