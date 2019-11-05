@@ -4,6 +4,7 @@ import Header from '../../Components/Header';
 import LoginForm from '../../Components/LoginContainer/LoginForm/LoginForm';
 import LoginAnother from '../../Components/LoginContainer/LoginAnother/LoginAnother';
 import SignUpLink from '../../Components/LoginContainer/SignUpLink/SignUpLink';
+import Footer from '../../Components/Footer/Footer.js'
 
 class Login extends Component {
 
@@ -19,6 +20,7 @@ class Login extends Component {
           <LoginAnother />
           <SignUpLink />
         </div>
+        <Footer />
       </div>
     );
   }

@@ -1,3 +1,4 @@
+
 .join-form {
     max-width: 800px;
     margin: 0 auto;
@@ -9,7 +10,8 @@
 
     }
     &-container {
-        background-color: #e4e7eb
+        background-color: #e4e7eb;
+        padding-top:35px;
         }
     // 위에것을 쓰지 않으면 밑의 클래스 css가 적용이 안됨
     &__member-info {
@@ -79,6 +81,7 @@
         color: white;
         display: inline-block;
         padding: 6px 12px;
+        margin-bottom: 50px;
         cursor: pointer;
     }
 }
@@ -117,6 +120,7 @@ input.join-form__terms-button:checked:after {
     left: 20px;
     box-shadow: -2px 4px 3px rgba(0,0,0,0.05);
 }
+
 .join-form__terms-link {
     position: absolute;
     right: 10px;

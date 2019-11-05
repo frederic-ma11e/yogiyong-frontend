@@ -1,5 +1,5 @@
 @import '../../Styles/color.scss';
-
+@import '../../Styles/reset.scss';
 
 *{
     padding: 0;
@@ -150,7 +150,7 @@ button{
     button{
         span{
             width: 28px;
-            height: 27px;
+            height: 26px;
             background-size: 28px;
             display: inline-block;
             vertical-align: middle;
@@ -163,17 +163,5 @@ button{
             background-image: url('../../Images/cacaoLogo.png');
            
         }
-    }
-}
-
-.link-signup{
-    text-align: center;
-    color: $font--grey;
-    margin-top: 50px;
-
-    span{
-        color: red;
-        font-weight: 600;
-        margin: 0 8px;
     }
 }
