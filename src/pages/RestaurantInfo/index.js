@@ -1,1 +1,1 @@
-export { default } from './RestaurantInfo.js/index.js'
+export { default } from './RestaurantInfo.js'

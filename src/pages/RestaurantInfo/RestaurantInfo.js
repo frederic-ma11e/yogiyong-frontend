@@ -6,12 +6,11 @@ import Infodetail from '../../Components/RestaurantInfoPage/Infodetail'
 import PhotoMenuContainer from '../../Components/RestaurantInfoPage/PhotoMenuContainer'
 import '../../Components/RestaurantInfoPage/HorizonMenu.scss'
 import RestaurantInfoCategory from '../../Components/RestaurantInfoCategory'
-
+import Footer from '../../Components/Footer'
 
 export class RestaurantInfo extends Component {
     constructor(){
         super()
-        
         this.state={
             title:'쫄면주는삼겹본능-삼성1호점',
             star:'4.6',
@@ -20,6 +19,7 @@ export class RestaurantInfo extends Component {
             deliveryTime:'20~30분',
             ownerMsg:'*리뷰이벤트 행사* 리뷰를 남겨주시는 고객에게는 치즈볼,새우볼,양념포테이토 3가지 증정한다고 하는데',
             ownerMsgClicked: false,
+            foodMenuBar:false,
             
             menuTabs : {
                 menuTab: true,
@@ -68,8 +68,7 @@ export class RestaurantInfo extends Component {
                 menuImg:'',
                 menuName:'간장구이삼겹 2인',
                 menuPrice:'19,000원',
-            }]
-
+            }] 
         }
     }
     handleClick=(e)=>{
@@ -97,6 +96,7 @@ export class RestaurantInfo extends Component {
             updatedMenuTabs["menuTab"] = false
             updatedMenuTabs["reviewTab"] = true
             updatedMenuTabs["infoTab"] = false
+
             this.setState({menuTabs : updatedMenuTabs});
             
         }
@@ -115,12 +115,15 @@ export class RestaurantInfo extends Component {
     render() {
 
         let menuTabItems = ""
+        let menuTabDetails=''
         if(this.state.menuTabs.menuTab) {
             menuTabItems = <PhotoMenuContainer data={this.state.menuTabItems} />
+            menuTabDetails = <RestaurantInfoCategory/>
         }
         if(this.state.menuTabs.infoTab){
             menuTabItems = <Infodetail />
         }
+        
 
         return (
             <div className='wholeRestaurantContainer'>
@@ -148,7 +151,11 @@ export class RestaurantInfo extends Component {
                     </div>
                     <HorizonMenu menuTabs={this.state.menuTabs} clickdata={this.state.ownerMsgClicked} passEvent={this.handleClick}/>
                     {menuTabItems}
+                {menuTabDetails}
+                
                 </div>
+                
+                <Footer/>
             </div>
         )
     }
