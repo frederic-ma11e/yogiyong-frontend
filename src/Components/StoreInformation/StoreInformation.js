@@ -3,6 +3,10 @@ import './StoreInformation.scss'
 
 class StoreInformation extends Component {
 
+    // restaurantClicked = () => {
+    //     // this.props.history.push('/')
+    // }
+
     render() {
         // const data = this.props.data;
         const { data } = this.props;
@@ -10,7 +14,7 @@ class StoreInformation extends Component {
         let accNum = Math.floor(data.threshold)
         let imgSrc = "https://www.yogiyo.co.kr" + data.logo_url
         return (
-            <div className="store-list__store-container">
+            <div className="store-list__store-container" onClick={this.restaurantClicked}>
                 <div className="store-list__store">
                     <div>
                         <img className="store-list__store-logo" src={imgSrc}>

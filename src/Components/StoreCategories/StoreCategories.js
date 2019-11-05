@@ -17,6 +17,7 @@ class StoreCategories extends React.Component {
                     <Link
                         to={`/storelist/${this.props.info.id}`}
                         id={this.props.info.id}
+                        onClick={this.props.click}
                     >
                         <div id={this.props.info.id}>
                             {this.props.info.name}

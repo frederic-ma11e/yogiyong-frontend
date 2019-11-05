@@ -1,30 +1,16 @@
 import React, { Fragment } from 'react';
+import { withRouter } from "react-router-dom";
 import StoreInformation from 'Components/StoreInformation'
 import './StoreList.scss'
 import StoreCategories from 'Components/StoreCategories'
 import Magnifier from 'Images/magnifier.png'
+import axios from 'axios';
 
 class StoreList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            restaurants: [
-                {
-                    logo_url: Image,
-                    name: "버거킹",
-                    review_avg: 5.0,
-                    review_count: 1714,
-                    threshold: 12000
-                },
-                {
-                    logo_url: Image,
-                    name: "버거킹",
-                    review_avg: 5.0,
-                    review_count: 1714,
-                    threshold: 12000
-                }
-
-            ],
+            restaurants: "",
             categories: [
                 {
                     id: 1,
@@ -78,34 +64,30 @@ class StoreList extends React.Component {
         }
     }
 
-    // handleRender = () => {
-    //     const { categoryId } = this.props.match.params;
-    //     fetch(`http://10.58.2.209:8000/restaurant/category/${categoryId}?order_method=review_avg`)
-    //         .then(res => res.json())
-    //         .then(res =>
-    //             this.setState({
-    //                 restaurants: res.restaurants
-    //             }))
-    // }
+    handleRender = () => {
+        const { categoryId } = this.props.match.params;
+        axios(`http://10.58.2.209:8000/restaurant/category/${categoryId}?order_method=review_avg`)
+            .then(res => {
+                console.log(res)
+                this.setState({
+                    restaurants: res.data.restaurants
+                })
+            })
+    }
 
     componentDidMount() {
         const { categoryId } = this.props.match.params;
-        fetch(`http://10.58.2.209:8000/restaurant/category/${categoryId}?order_method=review_avg`)
-            .then(res => res.json())
-            .then(res =>
+        axios(`http://10.58.2.209:8000/restaurant/category/${categoryId}?order_method=review_avg&page=0`)
+            // .then(res => res.json())
+            .then(res => {
+                console.log(res)
                 this.setState({
-                    restaurants: res.restaurants
-                }))
+                    restaurants: res.data.restaurants
+                })
+            })
     }
 
-    // .then( res => console.log(res))
-    //     // .then( res => res.map( info => 
 
-    // })
-
-    //     // .then(response => response.json())
-    // .then(res => console.log("fetch===", res))
-    //     console.log("111111======", this.state)
 
 
     render() {
@@ -123,16 +105,18 @@ class StoreList extends React.Component {
                         </label>
                     </div>
                     {this.state.categories.map(data => (
-                        <StoreCategories info={data} />
+                        <StoreCategories click={this.handleRender} info={data} />
                     ))}
                 </div>
-                <div className="store-list">
-                    {this.state.restaurants.map((info, index) => (
-                        <StoreInformation key={index} data={info} />
-                    ))}
-                    {/* <StoreInformation data={this.state.storeInformation}/>
-                <StoreInformation /> */}
-                </div>
+                {this.state.restaurants &&
+
+                    <div className="store-list">
+                        {this.state.restaurants.map((info, index) => (
+                            <StoreInformation key={index} data={info} />
+                        ))}
+                    </div>
+
+                }
             </>
 
         )
