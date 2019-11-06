@@ -1,0 +1,20 @@
+@import '../../../Styles/color.scss';
+@import '../../../Styles/reset.scss';
+
+.link-signup{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    
+    
+    .link{
+        text-decoration: none;
+        color: $font--grey;
+    }
+
+    span{
+        color: red;
+        font-weight: 600;
+        margin: 0 8px;
+    }
+}

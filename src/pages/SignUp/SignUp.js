@@ -3,6 +3,8 @@ import './SignUp.scss';
 import MemberInfo from '../../Components/SignupPage/MemberInfo/MemberInfo.js'
 import PhoneInfo from '../../Components/SignupPage/PhoneInfo/PhoneInfo'
 import TermsAndCondition from '../../Components/SignupPage/TermsAndCondition/TermsAndCondition'
+import Header from '../../Components/Header';
+import Footer from '../../Components/Footer';
 class SignUp extends React.Component {
     constructor(props) {
         super(props)
@@ -117,6 +119,8 @@ class SignUp extends React.Component {
         console.log('nickname=====', this.state.personalInformation.nickname)
         console.log('render=====', this.state.personalInformation)
         return (
+            <div>
+            <Header />
             <div className="join-form-container">
                 <form >
                     <div className="join-form">
@@ -155,6 +159,8 @@ class SignUp extends React.Component {
                     </div>
                 </form>
             </div>
+            <Footer />
+        </div>
         )
     }
 }

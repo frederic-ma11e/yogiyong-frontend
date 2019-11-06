@@ -1,3 +1,4 @@
+
 import React, { Fragment } from 'react';
 import { withRouter } from "react-router-dom";
 import StoreInformation from 'Components/StoreInformation'
@@ -5,6 +6,7 @@ import './StoreList.scss'
 import StoreCategories from 'Components/StoreCategories'
 import Magnifier from 'Images/magnifier.png'
 import axios from 'axios';
+
 
 class StoreList extends React.Component {
     constructor(props) {
