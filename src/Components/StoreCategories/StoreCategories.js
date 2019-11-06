@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './StoreCategories.scss'
 class StoreCategories extends React.Component {
+
     render() {
         return (
             <Fragment>
@@ -17,7 +18,7 @@ class StoreCategories extends React.Component {
                     <Link
                         to={`/storelist/${this.props.info.id}`}
                         id={this.props.info.id}
-                        onClick={this.props.click}
+                        onClick={() => this.props.click(this.props.info.id)}
                     >
                         <div id={this.props.info.id}>
                             {this.props.info.name}
