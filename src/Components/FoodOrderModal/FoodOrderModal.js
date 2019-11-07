@@ -35,6 +35,7 @@ class FoodOrderModal extends Component {
   }
 
   goToOrderPage = (c) => {
+    
     this.props.history.push('/food-order');
   };
 
