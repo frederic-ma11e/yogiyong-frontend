@@ -8,6 +8,7 @@ import SignUp from './pages/SignUp/index.js';
 import RestaurantInfo from "./pages/RestaurantInfo";
 import foodOrder from './pages/FoodOrderPage';
 import StoreList from "./pages/StoreList/index.js"
+import GoogleMaps from "./Components/GoogleMaps"
 
 class Routes extends React.Component {
   render() {
@@ -19,6 +20,7 @@ class Routes extends React.Component {
           <Route exact path="/login/signUp" component={SignUp} />
           <Route exact path="/detailMenu" component={RestaurantInfo} />
           <Route exact path="/food-order" component={foodOrder} />
+          <Route exact path="/google-maps" component={GoogleMaps} />
           <Route exact path="/storelist/:categoryId" component={StoreList} />
         </Switch>
       </Router>
