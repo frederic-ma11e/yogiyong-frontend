@@ -10,6 +10,7 @@ import foodOrder from './pages/FoodOrderPage';
 import StoreList from "./pages/StoreList/index.js"
 import GoogleMaps from "./Components/GoogleMaps"
 import OrderThankyou from "./pages/OrderThankyou/"
+import OrderedList from "./pages/OrderedList"
 
 class Routes extends React.Component {
   render() {
@@ -23,6 +24,7 @@ class Routes extends React.Component {
           <Route exact path="/food-order" component={foodOrder} />
           <Route exact path="/google-maps" component={GoogleMaps} />
           <Route exact path="/thank-you" component={OrderThankyou} />
+          <Route exact path="/ordered-list" component={OrderedList} />
           <Route exact path="/storelist/:categoryId" component={StoreList} />
         </Switch>
       </Router>
