@@ -31,17 +31,9 @@ class FoodOrderCheckList extends Component { // 오른쪽에있는 주문내역�
   };
 
   handleArrowClick = () => {
-    this.setState({});
-
-    if (this.state.displayMode === true) {
       this.setState({
-        displayMode: false
-      });
-    } else {
-      this.setState({
-        displayMode: true
-      });
-    }
+        displayMode: !this.state.displayMode
+    })
   };
 
   handleClick = e => {
@@ -98,9 +90,9 @@ class FoodOrderCheckList extends Component { // 오른쪽에있는 주문내역�
           >
             <div className="check-box">
               <div
-                className="check-img"
+                
+                className={`check-img ${checkList0?"checked":""}`} // !!!
                 onClick={this.handleClick}
-                style={{ backgroundPositionY: checkList0 ? -22 : 0 }}
                 id="checkList0"
               />
 
@@ -109,9 +101,8 @@ class FoodOrderCheckList extends Component { // 오른쪽에있는 주문내역�
 
             <div className="check-box">
               <div
-                className="check-img"
+                className={`check-img ${checkList1?"checked":""}`} // !!
                 onClick={this.handleClick}
-                style={{ backgroundPositionY: checkList1 ? -22 : 0 }}
                 id="checkList1"
               />
               <small className="check-all">

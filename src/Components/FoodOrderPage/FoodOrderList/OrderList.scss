@@ -95,23 +95,27 @@
     border-bottom: 1px solid #ddd;
     padding: 10px 5px 5px 0;
 
-    .check-img{
-      display: inline-block;
-      min-width: 22px;
-      height: 22px;
-      margin: -1px 4px  0px 0px;
-      background: url('../../../Images/ico_check.png');
-      background-size: 22px;
-      cursor: pointer;
-      background-color: ivory;
-      vertical-align: middle;
-    }
+    
     small{
       font-size: 75%;
       font-weight: bold;
     }
   }
-
+  .check-img{
+    display: inline-block;
+    min-width: 22px;
+    height: 22px;
+    margin: -1px 4px  0px 0px;
+    background: url('../../../Images/ico_check.png');
+    background-size: 22px;
+    cursor: pointer;
+    background-color: ivory;
+    vertical-align: middle;
+    
+    &.checked{
+      background-position-y: -22px;
+    }
+  }
   .arrow-icon{
     width: 16px;
     height: 16px;
@@ -126,17 +130,18 @@
     width:305px ;
     margin: 8px auto;
 
-    .check-img{
-      display: inline-block;
-      min-width: 22px;
-      height: 22px;
-      margin: -1px 4px  0px 0px;
-      background: url('../../../Images/ico_check.png');
-      background-size: 22px;
-      cursor: pointer;
-      background-color: ivory;
-      vertical-align: middle;
-    }
+    // .check-img{
+    //   display: inline-block;
+    //   min-width: 22px;
+    //   height: 22px;
+    //   margin: -1px 4px  0px 0px;
+    //   background: url('../../../Images/ico_check.png');
+    //   background-size: 22px;
+    //   cursor: pointer;
+    //   background-color: ivory;
+    //   vertical-align: middle;
+    
+    // }
     small{
       font-size: 75%;
       font-weight: bold;
