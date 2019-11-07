@@ -15,7 +15,6 @@ export class HorizonMenu extends Component {
 
     render() {
         const {menuNum,reviewNum}=this.state
-        console.log(this.props.clickdata)
         
         return (
                 <div className='menuContainer'>
