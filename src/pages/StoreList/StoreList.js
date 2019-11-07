@@ -28,7 +28,7 @@ class StoreList extends React.Component {
                 console.log("date from fetch===", res)
                 this.setState({
                     restaurants: res.data.restaurants,
-                    additionalRenderNum: 1,
+                    additionalRenderNum: 0,
                     startingId: cat_id
                 })
             })
@@ -75,7 +75,8 @@ class StoreList extends React.Component {
                 additionalRenderNum: this.state.additionalRenderNum + 1
             })
         }
-        axios(`http://10.58.3.24:8000/restaurant/category/${this.state.startingId}?order_method=review_avg&pageNum=${this.state.additionalRenderNum}`)
+        const { categoryId } = this.props.match.params
+        axios(`http://10.58.3.24:8000/restaurant/category/${categoryId}?order_method=review_avg&pageNum=${this.state.additionalRenderNum}`)
             .then(res => {
                 console.log("date from fetch for scroll===", res)
                 this.setState({
@@ -87,7 +88,6 @@ class StoreList extends React.Component {
     componentDidMount() {
         axios('http://10.58.3.24:8000/restaurant')
             .then(res => {
-                console.log(res)
                 this.setState({ categories: res.data.categories })
             })
         const { categoryId } = this.props.match.params
