@@ -1,10 +1,13 @@
 import React from "react";
 import "./SearchContainer.scss";
 import "Styles/common.scss";
-const SearchContainer = () => {
+const SearchContainer = props => {
+  // console.log(props.shrink)
   return (
-    <div className="SearchContainer">
-      <div className="searchImage">
+    <div className="SearchContainer" >
+      <div
+        className="searchImage"
+      >
         <span className="searchImage__span">
           <button className="searchImage__span--button" />
         </span>
@@ -14,7 +17,7 @@ const SearchContainer = () => {
         />
         <button className="searchImage__search--button">검색</button>
       </div>
-    </div>
+    </div >
   );
 };
 

@@ -8,7 +8,7 @@ import Footer from '../../Components/Footer'
 function Main() {
   return (
     <div>
-      <Header /> 
+      <Header />
       <SearchContainer />
       <CategoryContainer />
       <Footer />

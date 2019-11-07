@@ -1,7 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './StoreInformation.scss'
+import { Link } from 'react-router-dom'
 
-class StoreInformation extends Component {
+
+class StoreInformation extends React.Component {
 
     // restaurantClicked = () => {
     //     // this.props.history.push('/')
@@ -14,7 +16,10 @@ class StoreInformation extends Component {
         let accNum = Math.floor(data.threshold)
         let imgSrc = "https://www.yogiyo.co.kr" + data.logo_url
         return (
-            <div className="store-list__store-container" onClick={this.restaurantClicked}>
+            <Link
+                className="store-list__store-container"
+                to={`/restaurant/${data.id}`}
+            >
                 <div className="store-list__store">
                     <div>
                         <img className="store-list__store-logo" src={imgSrc}>
@@ -49,7 +54,7 @@ class StoreInformation extends Component {
                         {data.estimated_delivery_time}
                     </span>
                 </div>
-            </div>
+            </Link>
 
         )
     }
