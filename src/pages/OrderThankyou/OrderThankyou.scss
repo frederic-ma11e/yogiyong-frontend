@@ -2,10 +2,9 @@
 
 .thankyou-container {
     display: flex;
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 30px 0;
+    position: relative;
+    justify-content: center;
 }
 
 .thankyou {
@@ -76,6 +75,7 @@
     }
 
     &__middle-contents {
+        position: relative;
         margin-top: 10px;
     }
 
