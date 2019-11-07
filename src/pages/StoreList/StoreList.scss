@@ -14,3 +14,10 @@
     margin: 20px 0;
   }
 }
+.newContainer {
+  position: absolute;
+  top: -23px;
+  width: 100%;
+  z-index: -1;
+  height: 10px;
+}

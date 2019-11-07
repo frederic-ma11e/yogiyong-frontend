@@ -5,6 +5,9 @@ import './StoreList.scss'
 import StoreCategories from 'Components/StoreCategories'
 import Magnifier from 'Images/magnifier.png'
 import axios from 'axios';
+import Header from 'Components/Header'
+import SearchContainer from 'Components/MainPage/SearchContainer'
+import Footer from 'Components/Footer'
 
 class StoreList extends React.Component {
     constructor(props) {
@@ -16,6 +19,7 @@ class StoreList extends React.Component {
             categories: [],
             additionalRenderNum: 0,
             job: [],
+            // shrink: true
         }
         // this.scrollHandler = this.scrollHandler.bind(this)
     }
@@ -143,7 +147,7 @@ class StoreList extends React.Component {
         //         })
         //     })
         window.addEventListener("scroll", () => {
-            let position = window.innerHeight + window.scrollY
+            let position = window.innerHeight + window.scrollY + 50
             if (position > document.body.scrollHeight) {
                 this.handleScroll(position)
             }
@@ -164,13 +168,13 @@ class StoreList extends React.Component {
         }
         return (
             <>
+                <Header />
+                <SearchContainer />
                 <div>
                     {this.state.job.position}
                 </div>
                 <div className="store-list__category">
                     <div>
-                        {/* <img className = "magnifier" src={Magnifier}>
-                    </img> */}
                         <label id="9">
                             <img className="magnifier" src={Magnifier} id="9">
                             </img>
@@ -186,6 +190,7 @@ class StoreList extends React.Component {
                         ))}
                     </div>
                 }
+                <Footer />
             </>
 
         )
