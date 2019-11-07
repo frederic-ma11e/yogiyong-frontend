@@ -16,17 +16,20 @@ class StoreList extends React.Component {
             categories: [],
             additionalRenderNum: 1,
             job: [],
+            startingId: ""
         }
         // this.scrollHandler = this.scrollHandler.bind(this)
     }
 
     handleRender = (cat_id) => {
         // let { categoryId } = this.props.match.params
-        axios(`http://10.58.3.24:8000/restaurant/category/${cat_id}?order_method=review_avg`)
+        axios(`http://10.58.3.24:8000/restaurant/category/${cat_id}?order_method=review_avg&pageNum=1`)
             .then(res => {
                 console.log("date from fetch===", res)
                 this.setState({
-                    restaurants: res.data.restaurants
+                    restaurants: res.data.restaurants,
+                    additionalRenderNum: 1,
+                    startingId: cat_id
                 })
             })
 
@@ -65,21 +68,37 @@ class StoreList extends React.Component {
     //         return true;
     //     }
     // }
+    handleScroll = (position) => {
+        if (position > document.body.scrollHeight) {
+            position = position + window.scrollY
+            this.setState({
+                additionalRenderNum: this.state.additionalRenderNum + 1
+            })
+        }
+        axios(`http://10.58.3.24:8000/restaurant/category/${this.state.startingId}?order_method=review_avg&pageNuma=${this.state.additionalRenderNum}`)
+            .then(res => {
+                console.log("date from fetch for scroll===", res)
+                this.setState({
+                    restaurants: this.state.restaurants.concat(res.data.restaurants),
+                })
+            })
+
+    }
     componentDidMount() {
         axios('http://10.58.3.24:8000/restaurant')
             .then(res => {
                 console.log(res)
                 this.setState({ categories: res.data.categories })
             })
+        // let { categoryId } = this.props.match.params
+        // axios(`http://10.58.3.24:8000/restaurant/category/${categoryId}?order_method=review_avg&page=${this.state.additionalRenderNum}`)
 
-        axios(`http://10.58.3.24:8000/restaurant/category/1?order_method=review_avg&page=${this.state.additionalRenderNum}`)
-
-            .then(res => {
-                console.log("new axios===", res)
-                this.setState({
-                    restaurants: res.data.restaurants
-                })
-            })
+        //     .then(res => {
+        //         console.log("new axios===", res)
+        //         this.setState({
+        //             restaurants: res.data.restaurants
+        //         })
+        //     })
 
 
         //success case 1
@@ -107,6 +126,13 @@ class StoreList extends React.Component {
         //             restaurants: res.data.restaurants
         //         })
         //     })
+        window.addEventListener("scroll", () => {
+            let position = window.innerHeight + window.scrollY
+            if (position > document.body.scrollHeight) {
+                this.handleScroll(position)
+            }
+        })
+
     }
 
     render() {
