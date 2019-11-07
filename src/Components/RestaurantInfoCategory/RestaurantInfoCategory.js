@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./RestaurantInfoCategory.scss";
 import RestaurantInfoCList from "./RestaurantInfoCList";
 
-const API = "http://10.58.2.209:8000/restaurant/1";
+const API = "http://10.58.3.24:8000/restaurant/1";
 
 class RestaurantInfoCategory extends Component {
   state = {
