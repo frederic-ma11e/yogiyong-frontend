@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 class SideCartMenu extends Component {
+  
   render() {
     console.log(this.props);
     return (

@@ -13,6 +13,31 @@ class OrderList extends Component {
     menuclientHeight: "", // 메뉴 개수에 따라서 top의 크기를 변경하기위해 사용했습니다.
     menu: data.menu
   };
+
+  handleClick= () =>{
+    fetch("http://10.58.2.201:8004/order", {
+      method: "post",
+      body: JSON.stringify({
+        user_phone_number:this.props.phoneData, 
+        order_request:this.props.requestData, // 배달요청사항
+        restaurant:{"id":1},// 가게 아이디값
+        delivery_fee:2000 , // 배달비
+        delivery_address:this.props.addressData+" "+this.props.detailAddressData,
+        payment_method:{"id":this.props.paymentData} ,
+        // payment_method:"creditcard","online" //카드
+        menus:[{"id":3},{"id":4}], // 메뉴
+        amounts:[2,1], // 메뉴 개수
+      })
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === "SUCCESS") {
+          console.log("ok")
+          //this.props.history.push("/main");//주문 땡스페이지
+         // localStorage.setItem("user_id", res.user_access_token);
+        }
+      });
+  }
   componentDidMount() {
     const { handleScroll } = this;
     window.addEventListener("scroll", handleScroll);
@@ -47,6 +72,7 @@ class OrderList extends Component {
   };
 
   render() {
+    console.log(this.props)
     const { topValue, menu } = this.state;
     return (
       <div className="order-list" style={{ top: topValue }}>
@@ -57,14 +83,14 @@ class OrderList extends Component {
           <div className="restaurant-title">BBQ</div>
 
           <ul className="list-group-order">
-            {/* <OrderMenu data={menu} /> */}
-            <SideCartMenu/>
+            <OrderMenu data={menu} />
+            {/* <SideCartMenu/> */}
           </ul>
 
           <FoodOrderPrice menu={menu} />
           <FoodOrderCheckList />
 
-          <button className="pay-btn">주문완료</button>
+          <button className="pay-btn" onClick={this.handleClick}>주문완료</button>
           {/* 모달 */}
         </div>
       </div>

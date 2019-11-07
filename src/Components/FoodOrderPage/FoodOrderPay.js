@@ -2,24 +2,33 @@ import React, { Component } from "react";
 
 class FoodOrderPay extends Component { // 결제수단 선택 컴포넌트입니다.
   state = {
-    card: true,
+    card: 1,
     money: false
   };
+
+  componentDidMount(){
+    this.props.setPayment(this.state.card,this.state.money);
+  }
+  
 
   handleClick = e => {
     if (e.target.id === "card") {
       this.setState({
-        card: true,
+        card: 1,
         money: false
       });
     } else {
       this.setState({
         card: false,
-        money: true
+        money: 2
       });
     }
+    this._click()  
   };
-
+  _click() {
+    console.log("실행")
+    this.props.setPayment(this.state.card,this.state.money);
+  }
   render() {
     const { card, money } = this.state;
     return (
