@@ -4,6 +4,7 @@ import OrderMenu from "./OrderMenu";
 import FoodOrderCheckList from "../FoodOrderCheckList";
 import FoodOrderPrice from "../FoodOrderPrice";
 import data from "Data/orderListData";
+import SideCartMenu from "./SideCartMenu";
 
 class OrderList extends Component {
   state = {
@@ -56,7 +57,8 @@ class OrderList extends Component {
           <div className="restaurant-title">BBQ</div>
 
           <ul className="list-group-order">
-            <OrderMenu data={menu} />
+            {/* <OrderMenu data={menu} /> */}
+            <SideCartMenu/>
           </ul>
 
           <FoodOrderPrice menu={menu} />

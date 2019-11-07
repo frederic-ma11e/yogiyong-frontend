@@ -1,0 +1,16 @@
+.store-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: stretch;
+  padding: 0 215px;
+  justify-content: space-between;
+  &__category {
+    display: flex;
+    justify-content: space-between;
+    // justify-content: stretch;
+    padding: 0 215px;
+    font-size: 13px;
+    align-items: center;
+    margin: 20px 0;
+  }
+}

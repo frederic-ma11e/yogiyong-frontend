@@ -2,12 +2,39 @@ import React, { Component } from "react";
 import "./RestaurantInfoCategory.scss";
 import RestaurantInfoCList from "./RestaurantInfoCList";
 
-const API = "http://10.58.3.24:8000/restaurant/1";
+import data from "Data/restaurantInfoCategory";
+import FoodOrderModal from "../FoodOrderModal";
+const API = "http://10.58.3.24:8000/restaurant/4";
 
 class RestaurantInfoCategory extends Component {
-  state = {
-    data: []
-  };
+  // 식당정보 카테고리 상세페이지
+  constructor() {
+    super();
+    this.state = {
+      modal: false, //false
+      data: [],
+      modalData: ""
+    };
+
+    this.openModal = (e, info) => {
+      e.preventDefault();
+      this.setState(
+        {
+          modal: true
+        },
+        () => {
+          this.setState({ modalData: info });
+        }
+      );
+    };
+
+    this.handleCloseModal = e => {
+      this.setState({
+        modal: false
+      });
+    };
+  }
+
   componentDidMount() {
     fetch(API)
       .then(res => res.json())
@@ -24,11 +51,30 @@ class RestaurantInfoCategory extends Component {
   }
 
   render() {
+    console.log('RestaurantInfoCategory')
     const { data } = this.state;
     const list = data.map((info, index) => (
-      <RestaurantInfoCList key={index} info={info} />
+      <RestaurantInfoCList
+        key={index}
+        info={info}
+        isOpen={this.state.modal}
+        clicked={this.openModal}
+      />
     ));
-    return <div>{list}</div>;
+    return (
+      <div>
+        {list}
+        {this.state.modalData && (
+          <FoodOrderModal
+            setFoodOrder={this.props.setFoodOrder}
+            isOpen={this.state.modal}
+            isClose={this.handleCloseModal}
+            onClick={this.openModal}
+            data={this.state.modalData.info}
+          />
+        )}
+      </div>
+    );
   }
 }
 

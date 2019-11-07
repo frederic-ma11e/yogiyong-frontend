@@ -3,7 +3,6 @@ import './HorizonMenu.scss'
 
 export class HorizonMenu extends Component {
     render() {
-        //console.log(this.props.clickdata)
         
         return (
                 <div className='menuContainer'>

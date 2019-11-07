@@ -6,17 +6,9 @@ class OrderRequest extends Component { // 주문시 요청사항 컴포넌트입
   };
   handleClick2 = () => {
     this.setState({
-      pageHeight: document.querySelector(".root").clientHeight
+      pageHeight: document.querySelector(".root").clientHeight,
+      displayMode2: !this.state.displayMode2
     });
-    if (this.state.displayMode2 === true) {
-      this.setState({
-        displayMode2: false
-      });
-    } else {
-      this.setState({
-        displayMode2: true
-      }); 
-    }
   };
   render() {
     const { displayMode2} =this.state

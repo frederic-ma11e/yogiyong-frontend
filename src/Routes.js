@@ -4,10 +4,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Main from "../src/pages/Main/index.js";
 import Login from "../src/pages/Login/index.js";
 import SignUp from './pages/SignUp/index.js';
+
 import RestaurantInfo from "./pages/RestaurantInfo";
 import foodOrder from './pages/FoodOrderPage';
 import StoreList from "./pages/StoreList/index.js"
-import resetModal from "./Components/RestaurantInfoPage/resetModal.js";
+import GoogleMaps from "./Components/GoogleMaps"
+import OrderThankyou from "./pages/OrderThankyou/"
+import OrderedList from "./pages/OrderedList"
 
 class Routes extends React.Component {
   render() {
@@ -20,7 +23,10 @@ class Routes extends React.Component {
           <Route exact path="/restaurant/:id" component={RestaurantInfo} />
           <Route exact path="/food-order" component={foodOrder} />
           <Route exact path="/storelist" component={StoreList} />
-          <Route exact path="/testResetModal" component={resetModal} />
+          <Route exact path="/google-maps" component={GoogleMaps} />
+          <Route exact path="/thank-you" component={OrderThankyou} />
+          <Route exact path="/ordered-list" component={OrderedList} />
+          <Route exact path="/storelist/:categoryId" component={StoreList} />
         </Switch>
       </Router>
     );

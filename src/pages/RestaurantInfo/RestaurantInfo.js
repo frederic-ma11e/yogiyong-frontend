@@ -1,5 +1,5 @@
+
 import React, { Component } from 'react'
-import {withRouter} from 'react-router-dom'
 import Header from '../../Components/Header'
 import './RestaurantInfo.scss'
 import HorizonMenu from '../../Components/RestaurantInfoPage/HorizonMenu'
@@ -8,34 +8,32 @@ import PhotoMenuContainer from '../../Components/RestaurantInfoPage/PhotoMenuCon
 import '../../Components/RestaurantInfoPage/HorizonMenu.scss'
 import RestaurantInfoCategory from '../../Components/RestaurantInfoCategory'
 import Footer from '../../Components/Footer'
-import SideCart from '../../Components/RestaurantInfoPage/SideCart'
+import SideCart from "../../Components/FoodOrderPage/FoodOrderList/SideCart";
 
 class RestaurantInfo extends Component {
     constructor(){
         super()
         console.log('RestaurantInfo', this.props)
         //console.log("constructor")
-        this.state={
+        this.state = {
             restaurantInfo: null,
             paymentInfo: null,
-            popularMenuInfo:null,
-            reviewStarImg:"",
-
-            menuTabs : {
-                menuTab: true,
-                reviewTab:false,
-                infoTab:false
+            popularMenuInfo: null,
+            foodOrder: "",
+            menuTabs: {
+              menuTab: true,
+              reviewTab: false,
+              infoTab: false
             }
+          };
         }
-    }
 
     componentDidMount() {
 
         let pathName = document.location.pathname;
         let id = pathName.split("/")[2]
          // ["", "restaurant", "1"]
-        
-
+    
 
         fetch(`http://10.58.3.24:8000/restaurant/${id}`)
         .then(res=>{
@@ -93,18 +91,17 @@ class RestaurantInfo extends Component {
     
 
     render() {
-        let menuTabItems = ""
-        let menuTabDetails=''
-        //let reviewTabItems = ''
-        
-        
-        if(this.state.menuTabs.menuTab) {
-            menuTabItems = <PhotoMenuContainer data={this.state.popularMenuInfo} />
-            menuTabDetails = <RestaurantInfoCategory/>
-        }
-        if(this.state.menuTabs.infoTab){
-            menuTabItems = <Infodetail info={this.state.restaurantInfo}/>
-        }
+        let menuTabItems = "";
+    let menuTabDetails = "";
+    if (this.state.menuTabs.menuTab) {
+      menuTabItems = <PhotoMenuContainer data={this.state.popularMenuInfo} />;
+      menuTabDetails = (
+        <RestaurantInfoCategory setFoodOrder={this.setFoodOrder} />
+      );
+    }
+    if (this.state.menuTabs.infoTab) {
+      menuTabItems = <Infodetail info={this.state.restaurantInfo} />;
+    }
         
         //style={{backgroundImage:`url(${this.props.image})`}}
 
@@ -167,17 +164,20 @@ class RestaurantInfo extends Component {
 
                     {menuTabItems}
                     {/* {reviewTabItems} */}
-                {menuTabDetails}
+                    {menuTabDetails}
                 </div>
-                <SideCart info={this.state.restaurantInfo}/>
+                <SideCart
+                data={this.state.foodOrder}
+                // info={this.state.restaurantInfo}
+              />
                 </div>
 
                 )}
                 <Footer/>
-            </div>
-        )
-    }
+                </div>
+    );
+  }
 }
 
-export default withRouter(RestaurantInfo)
 
+export default RestaurantInfo;

@@ -1,0 +1,104 @@
+@import "../../Styles/color.scss";
+
+.ordered-list-container {
+    display: flex;
+    margin: 30px 0;
+    justify-content: center;
+}
+
+.ordered-list {
+    width: 800px;
+    height: auto;
+    border: 1px solid $gray-light-2;
+
+    &__header {
+        height: 200px;
+        width: 100%;
+        background-color: $gray-strong;
+        height : $header-height;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    &__title {
+        font-size: $header-title-size;
+        margin-left: 15px;
+        color : $white;
+        font-weight: 900;
+    }
+
+    &__orders-wrapper {
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+    }
+
+    &__orders {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 95%;
+    }
+
+    &__order {
+        margin-bottom: 20px;
+        border : 1px solid $gray-light-2;
+        display: flex;
+        height: auto;
+    }
+
+    &__img {
+        width : 160px;
+        height: 150px;
+    }
+
+    &__info-wrapper {
+        height: 100%;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__info {
+        display : flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__name {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    &__menus {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+
+    &__menu {
+        padding-right: 10px;
+    }
+
+    &__rest-data {
+        
+    }
+
+    &__order-data {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+
+    &__date {
+
+    }
+
+    &__delivered {
+        font-weight: bold;
+    }
+
+
+}
