@@ -14,16 +14,16 @@ class StoreList extends React.Component {
                 {}
             ],
             categories: [],
-            additionalRenderNum: 1,
+            additionalRenderNum: 0,
             job: [],
-            startingId: ""
+            startingId: "1"
         }
         // this.scrollHandler = this.scrollHandler.bind(this)
     }
 
     handleRender = (cat_id) => {
         // let { categoryId } = this.props.match.params
-        axios(`http://10.58.3.24:8000/restaurant/category/${cat_id}?order_method=review_avg&pageNum=1`)
+        axios(`http://10.58.3.24:8000/restaurant/category/${cat_id}?order_method=review_avg&pageNum=0`)
             .then(res => {
                 console.log("date from fetch===", res)
                 this.setState({
@@ -75,7 +75,7 @@ class StoreList extends React.Component {
                 additionalRenderNum: this.state.additionalRenderNum + 1
             })
         }
-        axios(`http://10.58.3.24:8000/restaurant/category/${this.state.startingId}?order_method=review_avg&pageNuma=${this.state.additionalRenderNum}`)
+        axios(`http://10.58.3.24:8000/restaurant/category/${this.state.startingId}?order_method=review_avg&pageNum=${this.state.additionalRenderNum}`)
             .then(res => {
                 console.log("date from fetch for scroll===", res)
                 this.setState({
@@ -89,6 +89,15 @@ class StoreList extends React.Component {
             .then(res => {
                 console.log(res)
                 this.setState({ categories: res.data.categories })
+            })
+        const { categoryId } = this.props.match.params
+        axios(`http://10.58.3.24:8000/restaurant/category/${categoryId}?order_method=review_avg&pageNum=${this.state.additionalRenderNum}`)
+
+            .then(res => {
+                console.log("new axios===", res)
+                this.setState({
+                    restaurants: res.data.restaurants
+                })
             })
         // let { categoryId } = this.props.match.params
         // axios(`http://10.58.3.24:8000/restaurant/category/${categoryId}?order_method=review_avg&page=${this.state.additionalRenderNum}`)
