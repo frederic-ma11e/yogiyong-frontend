@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './StoreInformation.scss'
 
-class StoreInformation extends React.Component {
+class StoreInformation extends Component {
+
+    // restaurantClicked = () => {
+    //     // this.props.history.push('/')
+    // }
 
     render() {
-        let accNum = Math.floor(this.props.data.threshold)
-        let imgSrc = "https://www.yogiyo.co.kr" + this.props.data.logo_url
+        // const data = this.props.data;
+        const { data } = this.props;
+
+        let accNum = Math.floor(data.threshold)
+        let imgSrc = "https://www.yogiyo.co.kr" + data.logo_url
         return (
-            <div className="store-list__store-container">
+            <div className="store-list__store-container" onClick={this.restaurantClicked}>
                 <div className="store-list__store">
                     <div>
                         <img className="store-list__store-logo" src={imgSrc}>
@@ -15,21 +22,21 @@ class StoreInformation extends React.Component {
                     </div>
                     <div className="store-list__store-info">
                         <div className="store-list__store-name">
-                            {this.props.data.name}
+                            {data.name}
                         </div>
                         <div className="store-list__store-detail">
                             <img>
                             </img>
                             <span>
-                             ★ {this.props.data.review_avg}
+                                ★ {data.review_avg}
                             </span>
                             <span>
-                                리뷰  {this.props.data.review_count}
+                                리뷰  {data.review_count}
                             </span>
                         </div>
                         <div>
                             <span>
-                                {this.props.data.storePayMethod}
+                                {data.storePayMethod}
                             </span>
                             <span>
                                 {accNum}원이상 배달
@@ -39,7 +46,7 @@ class StoreInformation extends React.Component {
                 </div>
                 <div className="store-list__store-time-container">
                     <span className="store-list__store-time">
-                        {this.props.data.estimated_delivery_time}
+                        {data.estimated_delivery_time}
                     </span>
                 </div>
             </div>
