@@ -12,6 +12,7 @@ class Footer extends Component {
     companyInfo: data.companyInfo,
     lastInfo: data.lastInfo
   };
+
   render() {
     const { info, companyInfo, lastInfo } = this.state;
     return (
