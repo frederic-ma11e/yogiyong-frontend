@@ -6,7 +6,7 @@ class SideCartMenu extends Component {
     console.log(this.props);
     return (
         <div className="innerContainer">
-          <div className="menuTitle">{this.props.data[0][0]}</div>
+          {/* <div className="menuTitle">{this.props.data[0][0]}</div> */}
 
           <div className="cartList">
             <div className="cartList__left">

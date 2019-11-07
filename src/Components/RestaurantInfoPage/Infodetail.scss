@@ -1,24 +1,25 @@
-@import '../../Styles/color.scss';
-@import '../../Styles/reset.scss';
+@import "../../Styles/color.scss";
+@import "../../Styles/reset.scss";
 
-
-.infoContainer{
-    border-right: 1px solid $font--lightgrey; 
-    border-left: 1px solid $font--lightgrey; 
-    border-bottom: 1px solid $font--lightgrey; 
-    max-width: 680px;
-    padding: 30px 16px;
-   .infoItem{
+.infoContainer {
+  border-right: 1px solid $font--lightgrey;
+  border-left: 1px solid $font--lightgrey;
+  border-bottom: 1px solid $font--lightgrey;
+  max-width: 680px;
+  padding: 30px 16px;
+  .infoItem {
     margin-bottom: 50px;
-    i{
-        min-width: 95px;
+    p {
+      margin-left: 12px;
     }
-    span{
-        display: table-cell;
-        
+    i {
+      min-width: 95px;
     }
-
-   }.underLine{
+    span {
+      display: table-cell;
+    }
+  }
+  .underLine {
     color: #333;
     font-size: 16px;
     font-weight: bold;
@@ -26,24 +27,22 @@
     padding: 0 0 7px 10px;
     margin-bottom: 18px;
     background-size: 16px;
-}
-    
+  }
 }
 
-.underLine{
-    color: #333;
-    font-size: 16px;
-    font-weight: bold;
-    border-bottom: 1px solid #999;
-    padding: 0 0 7px 10px;
-    margin-bottom: 18px;
-    background-size: 16px;
+.underLine {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #999;
+  padding: 0 0 7px 10px;
+  margin-bottom: 18px;
+  background-size: 16px;
 }
-.infoTitle{
-    color: #999;
-    width: 130px;
-    padding: 0 0 7px 10px;
-    margin-bottom: 18px;
-    display: table-cell;
-
+.infoTitle {
+  color: #999;
+  width: 130px;
+  padding: 0 0 7px 10px;
+  margin-bottom: 18px;
+  display: table-cell;
 }

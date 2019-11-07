@@ -1,0 +1,53 @@
+@import "../../Styles/color.scss";
+@import "../../Styles/reset.scss";
+
+.resetModalContainer {
+  width: 600px;
+  .resetModalTitle {
+    background-color: black;
+    color: white;
+    padding: 18px 20px;
+    height: 50px;
+    .closeImg {
+      background-image: url("../../Images/sprite-icon.png");
+      background-size: 300px;
+      background-position: 237px 54px;
+      width: 23px;
+      height: 23px;
+      float: right;
+    }
+  }
+  .resetModalBody {
+    padding: 20px;
+    border-left: 1px solid $font--lightgrey;
+    border-right: 1px solid $font--lightgrey;
+  }
+  .resetFooter {
+    border: 1px solid $font--lightgrey;
+    padding: 9px 15px;
+    display: flex;
+    text-align: center;
+
+    .cancelBtn {
+      border: 1px solid red;
+      color: red;
+      padding: 9px 12px;
+      width: 55px;
+      height: 35px;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .okBtn {
+      background-color: red;
+      color: white;
+      padding: 10px 12px;
+      width: 55px;
+      height: 35px;
+      font-size: 14px;
+      margin-left: 15px;
+      cursor: pointer;
+      display: inline-block;
+    }
+  }
+}

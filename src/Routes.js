@@ -10,6 +10,7 @@ import foodOrder from './pages/FoodOrderPage';
 import StoreList from "./pages/StoreList/index.js"
 import GoogleMaps from "./Components/GoogleMaps"
 import OrderThankyou from "./pages/OrderThankyou/"
+import OrderedList from "./pages/OrderedList"
 
 class Routes extends React.Component {
   render() {
@@ -19,10 +20,12 @@ class Routes extends React.Component {
           <Route exact path="/" component={Main} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/login/signUp" component={SignUp} />
-          <Route exact path="/detailMenu" component={RestaurantInfo} />
+          <Route exact path="/restaurant/:id" component={RestaurantInfo} />
           <Route exact path="/food-order" component={foodOrder} />
+          <Route exact path="/storelist" component={StoreList} />
           <Route exact path="/google-maps" component={GoogleMaps} />
           <Route exact path="/thank-you" component={OrderThankyou} />
+          <Route exact path="/ordered-list" component={OrderedList} />
           <Route exact path="/storelist/:categoryId" component={StoreList} />
         </Switch>
       </Router>
