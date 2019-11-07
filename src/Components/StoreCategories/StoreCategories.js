@@ -1,34 +1,31 @@
 import React, { Fragment } from 'react'
-import Magnifier from '../../../Images/magnifier.png'
+import { Link } from 'react-router-dom';
+
 import './StoreCategories.scss'
 class StoreCategories extends React.Component {
+
     render() {
         return (
             <Fragment>
-                <div>
-                    {/* <img className = "magnifier" src={Magnifier}>
-                    </img> */}
-                    <label id="9">
-                        <img className = "magnifier" src={Magnifier} id="9">
-                        </img>
-                    </label>
-                    
-                </div>
-                <div>
+                {/* <div>
                     <label id="0">
                         <div id="0">
                             전체보기
                         </div>
                     </label>
-                </div>
+                </div> */}
                 <div>
-                    <label id="1">
-                        <div id="1">
-                            1인분 주문
+                    <Link
+                        to={`/storelist/${this.props.info.id}`}
+                        id={this.props.info.id}
+                        onClick={() => this.props.click(this.props.info.id)}
+                    >
+                        <div id={this.props.info.id}>
+                            {this.props.info.name}
                         </div>
-                    </label>
+                    </Link>
                 </div>
-                <div>
+                {/* <div>
                     <label id="2">
                         <div id="2">
                             프랜차이즈
@@ -45,13 +42,13 @@ class StoreCategories extends React.Component {
                 <div>
                     <label id="4">
                         <div id="4">
-                        피자/양식
+                            피자/양식
                         </div>
                     </label>
                 </div>
                 <div>
                     <label id="5">
-                        <div id="5"> 
+                        <div id="5">
                             중국집
                         </div>
                     </label>
@@ -104,8 +101,8 @@ class StoreCategories extends React.Component {
                             편의점
                         </div>
                     </label>
-                </div>
-            </Fragment>
+                </div> */}
+            </Fragment >
         )
     }
 }
