@@ -1,4 +1,5 @@
 .store-list {
+  margin-top: 370px;
   display: flex;
   flex-flow: row wrap;
   justify-content: stretch;
@@ -55,4 +56,16 @@
 }
 .thisisjustforcolor {
   color: red;
+}
+
+.google-maps {
+  position: absolute;
+  top: 10px;
+  left: 350px;
+  width: 100%;
+
+}
+
+.google-maps-wrapper {
+  position: relative;
 }
