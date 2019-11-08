@@ -4,8 +4,8 @@ import RestaurantInfoCList from "./RestaurantInfoCList";
 
 import data from "Data/restaurantInfoCategory";
 import FoodOrderModal from "../FoodOrderModal";
-const API = "http://10.58.3.24:8000/restaurant/4";
 
+console.log(window.location.pathname);
 class RestaurantInfoCategory extends Component {
   // 식당정보 카테고리 상세페이지
   constructor() {
@@ -36,6 +36,8 @@ class RestaurantInfoCategory extends Component {
   }
 
   componentDidMount() {
+    const API = `http://10.58.3.24:8000${document.location.pathname}`;
+
     fetch(API)
       .then(res => res.json())
       .then(info => {
@@ -51,7 +53,9 @@ class RestaurantInfoCategory extends Component {
   }
 
   render() {
-    console.log('RestaurantInfoCategory')
+    console.log("=============================");
+
+    console.log("RestaurantInfoCategory");
     const { data } = this.state;
     const list = data.map((info, index) => (
       <RestaurantInfoCList
@@ -66,6 +70,7 @@ class RestaurantInfoCategory extends Component {
         {list}
         {this.state.modalData && (
           <FoodOrderModal
+            restaurant={this.props.restaurant}
             setFoodOrder={this.props.setFoodOrder}
             isOpen={this.state.modal}
             isClose={this.handleCloseModal}

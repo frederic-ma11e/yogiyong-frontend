@@ -1,6 +1,16 @@
 .magnifier {
-    width: 20px;
-    height: 20px;
-    background: '../../../Images/magnifier.png';
-    cursor: pointer;
+  width: 35px;
+  height: 35px;
+  background-image: url("../../Images/icons.png");
+  cursor: pointer;
+  border: 1px #d9d9d9 solid;
+  padding: 5px;
+  background-size: 300px;
+  background-position: 242px 722px;
+  border-radius: 8px;
+}
+.store-list__category__section {
+  border-right: 1px solid #d9d9d9;
+  padding-right: 20px;
+  color: black;
 }

@@ -1,0 +1,6 @@
+export const ADD_MENU = 'ADD_MENU';
+export const REMOVE_MENU = 'REMOVE_MENU'
+export const INCREMENT_MENU = 'INCREMENT_MENU';
+export const DECREMENT_MENU = 'DECREMENT_MENU';
+export const ADD_RESTAURANT_INFO = 'ADD_RESTAURANT_INFO';
+export const RESET_MENU = "RESET_MENU";

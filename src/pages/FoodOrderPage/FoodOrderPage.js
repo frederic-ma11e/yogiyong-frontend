@@ -45,20 +45,20 @@ class FoodOrderPage extends Component {
       
   }
   handlesScroll = () =>{
+
     this.setState({
       pageHeight:document.querySelector('.root').clientHeight 
     })
   }
   
   componentDidMount(){
+    window.scrollTo(0, 0);
     window.addEventListener("scroll",this.handlesScroll)
 
     this.setState({
       clientHeight: document.querySelector(".food-order-main").clientHeight
   }) 
   }
-
- 
 
   render() {
     console.log(this.state.address , this.state.detailAddress, this.state.phone)

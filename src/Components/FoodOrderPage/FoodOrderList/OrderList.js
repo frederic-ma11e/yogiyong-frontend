@@ -4,7 +4,11 @@ import OrderMenu from "./OrderMenu";
 import FoodOrderCheckList from "../FoodOrderCheckList";
 import FoodOrderPrice from "../FoodOrderPrice";
 import data from "Data/orderListData";
+import {connect} from "react-redux";
+import * as actionTypes from "../../../store/actions"
 import SideCartMenu from "./SideCartMenu";
+
+import { withRouter } from 'react-router-dom';
 
 class OrderList extends Component {
   state = {
@@ -20,7 +24,7 @@ class OrderList extends Component {
       body: JSON.stringify({
         user_phone_number:this.props.phoneData, 
         order_request:this.props.requestData, // 배달요청사항
-        restaurant:{"id":1},// 가게 아이디값
+        restaurant:{"id":this.props.menus.id},// 가게 아이디값
         delivery_fee:2000 , // 배달비
         delivery_address:this.props.addressData+" "+this.props.detailAddressData,
         payment_method:{"id":this.props.paymentData} ,
@@ -37,6 +41,10 @@ class OrderList extends Component {
          // localStorage.setItem("user_id", res.user_access_token);
         }
       });
+   this.goToSignup()
+    }
+  goToSignup() {
+    this.props.history.push('/thank-you');
   }
   componentDidMount() {
     const { handleScroll } = this;
@@ -72,22 +80,23 @@ class OrderList extends Component {
   };
 
   render() {
-    console.log(this.props)
+    console.log(this.props.menus)
     const { topValue, menu } = this.state;
+    console.log(this.props.restaurant)
     return (
       <div className="order-list" style={{ top: topValue }}>
         <div className="list-container">
           <div className="panel-heading">
             <span className>주문내역</span>
           </div>
-          <div className="restaurant-title">BBQ</div>
+          <div className="restaurant-title">{this.props.restaurant.name}</div>
 
           <ul className="list-group-order">
-            <OrderMenu data={menu} />
+            <OrderMenu data={this.props.menus} />
             {/* <SideCartMenu/> */}
           </ul>
 
-          <FoodOrderPrice menu={menu} />
+          <FoodOrderPrice total_price={this.props.totalPrice} />
           <FoodOrderCheckList />
 
           <button className="pay-btn" onClick={this.handleClick}>주문완료</button>
@@ -98,4 +107,13 @@ class OrderList extends Component {
   }
 }
 
-export default OrderList;
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+      menus : state.menus,
+      totalPrice : state.total_price,
+      restaurant : state.restaurant
+  }
+}
+
+export default connect(mapStateToProps)(withRouter(OrderList));

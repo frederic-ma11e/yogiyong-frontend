@@ -30,6 +30,7 @@ import {withRouter} from 'react-router-dom'
             if(res.message==="SUCCESS"){
               localStorage.setItem("user_token", res.user_token)
               //localStorage.removeItem("user_token") logout 
+              alert("로그인이 완료 되었습니다.")
               this.props.history.push("/")
         }}
         )

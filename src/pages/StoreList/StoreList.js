@@ -3,11 +3,13 @@ import { withRouter } from "react-router-dom";
 import StoreInformation from 'Components/StoreInformation'
 import './StoreList.scss'
 import StoreCategories from 'Components/StoreCategories'
-import Magnifier from 'Images/magnifier.png'
+import Magnifier from 'Images/icons.png'
 import axios from 'axios';
 import Header from 'Components/Header'
 import SearchContainer from 'Components/MainPage/SearchContainer'
 import Footer from 'Components/Footer'
+import { Link } from 'react-router-dom'
+import StoreRangeSelectBox from '../StoreRangeSelectBox/StoreRangeSelectBox'
 
 class StoreList extends React.Component {
     constructor(props) {
@@ -18,7 +20,8 @@ class StoreList extends React.Component {
             ],
             categories: [],
             additionalRenderNum: 0,
-            job: [],
+            tags: "",
+            cesco: false
             // shrink: true
         }
         // this.scrollHandler = this.scrollHandler.bind(this)
@@ -80,10 +83,13 @@ class StoreList extends React.Component {
         const { categoryId } = this.props.match.params
         axios(`http://10.58.3.24:8000/restaurant/category/${categoryId}?order_method=review_avg&pageNum=${this.state.additionalRenderNum}`)
             .then(res => {
-                console.log("date from fetch for scroll===", res)
+                // if (res.data.restaurants[0].tags[0] === "CESCO") {
+                //     console.log("date from fetch for scroll===", res.data.restaurants[0].tags[0])
+                // }
                 if (res.data.restaurants) {
                     this.setState({
                         restaurants: this.state.restaurants.concat(res.data.restaurants),
+
                     })
                 }
                 else if (res.data.RESULT = "NO_MORE_PAGE") {
@@ -157,7 +163,7 @@ class StoreList extends React.Component {
 
     render() {
         console.log("param===", this.props.match)
-        console.log("2222====", this.state)
+        console.log("2222====", this.state.restaurants)
 
         let categoriesNav = ""
         if (this.state.categories) {
@@ -170,19 +176,45 @@ class StoreList extends React.Component {
             <>
                 <Header />
                 <SearchContainer />
-                <div>
-                    {this.state.job.position}
-                </div>
                 <div className="store-list__category">
-                    <div>
+                    <div className="magnifier-container">
                         <label id="9">
-                            <img className="magnifier" src={Magnifier} id="9">
-                            </img>
+                            <div
+                                className="magnifier"
+                                src={Magnifier}
+                                id="9"
+                            >
+                            </div>
                         </label>
                     </div>
+                    <Link
+                        to={`/storelist/1`}
+                        onClick={() => this.handleRender(1)}
+                    >
+
+                        <div className="store-list__category__section" id="see-all-button">
+                            전체보기
+                        </div>
+
+                    </Link>
                     {categoriesNav}
                 </div>
-                {this.state.restaurants &&
+                <div className="store-list__mini-header">
+                    <div className="store-list__mini-header__left">
+                        <div className="thisisforspace">
+                            음식점
+                        </div>
+                        <div className="thisisjustforcolor">
+                            {this.state.restaurants.length}
+                        </div>
+                        <div>
+                            곳을 찾았습니다.
+                        </div>
+                    </div>
+                    < StoreRangeSelectBox />
+                </div>
+                {
+                    this.state.restaurants &&
 
                     <div className="store-list">
                         {this.state.restaurants.map((info, index) => (
