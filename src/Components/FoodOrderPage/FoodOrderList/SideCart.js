@@ -10,11 +10,30 @@ class SideCart extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      
       foodDada:false,
       foodOrder2:"",
+
       isModalOpen: false
     };
   }
+
+  openModal = () => {
+    this.setState({ isModalOpen: true });
+  }
+
+  closeModal = () => {
+    this.setState({ isModalOpen: false }); 
+  }
+
+
+
+//this.props.foodOrder
+  clickedMinusBtn = () => {
+    if (this.state.count !== 1) {
+      this.setState({ count: this.state.count - 1 });
+    }
+  };
 
   goToOrderPage = () => {
     this.props.history.push('/food-order');
@@ -28,6 +47,12 @@ class SideCart extends Component {
     this.setState({ isModalOpen: false }); 
   }
 
+  // openModal=()=>{
+  //       <ResetModal
+  //         resetOpen={this.state.resetModal} 
+  //         resetClose={this.state.closeResetModal}
+  //         onClick={this.state.openResetModal}/>
+  // }
 
   render() {
 
@@ -41,6 +66,7 @@ class SideCart extends Component {
           <SideCartMenu 
             data={el} />)
     }
+
       
     return (
       <div className="sideCartContainer">

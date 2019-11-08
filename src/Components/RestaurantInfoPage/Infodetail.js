@@ -2,30 +2,22 @@ import React, { Component } from 'react'
 import './Infodetail.scss'
 
 export class Infodetail extends Component {
-    constructor(){
-        super()
-        this.state={
-            msg:'',
-        }
-    }
+    
     render() {
         let ingredients__array=[]
         if(this.props.info.ingredients_origin){
             let ingrediendts=this.props.info.ingredients_origin;
-            ingredients__array = ingrediendts.split('\t\r\n')
+            ingredients__array = ingrediendts.split('\n')
             }
-            const result =ingredients__array.map(el=>{
+            let result =ingredients__array.map(el=>{
                 return <p>{el}</p>
             })
             
+            console.log(result)
 
 
            return (
                 <div className='infoContainer'>
-                    <div className='infoItem'>
-                        <div className="underLine">사장님 알림</div>
-                        <div className="msg">{}</div>
-                    </div>
                     <div className="infoItem">
                         <div className="underLine">업체 정보</div>
                         <p><i className="infoTitle">영업시간</i><span>{this.props.info.open_time_description}</span></p>
@@ -42,8 +34,7 @@ export class Infodetail extends Component {
                     </div>
                     <div className="infoItem">
                         <div className="underLine">원산지 정보</div>
-                        <p>{result}</p>
-                        
+                        {result}
                     </div>
                 </div>
         )
