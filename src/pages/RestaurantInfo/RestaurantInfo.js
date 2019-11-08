@@ -12,7 +12,6 @@ import SideCart from "../../Components/FoodOrderPage/FoodOrderList/SideCart";
 class RestaurantInfo extends Component {
   constructor() {
     super();
-    //console.log("constructor")
     this.state = {
       restaurantInfo: null,
       paymentInfo: null,
@@ -41,9 +40,7 @@ class RestaurantInfo extends Component {
   }
 
   handleClick = tab => {
-    //console.log(this.state)
     if (tab === "ownerMsg") {
-      //console.log("clicked")
       let updatedMenuTabs = { ...this.state.infoTab }; //copy &paste
       updatedMenuTabs["menuTab"] = false;
       updatedMenuTabs["reviewTab"] = false;
@@ -79,7 +76,6 @@ class RestaurantInfo extends Component {
 
   // componentDidMount(){
   setFoodOrder = order => {
-    console.log("============================")
     console.log(order)
     if (order.length !== 0) {
       this.setState({ foodOrder: order });
