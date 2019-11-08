@@ -50,13 +50,14 @@ class OrderList extends Component {
 
   render() {
     const { topValue, menu } = this.state;
+    console.log(this.props.restaurant)
     return (
       <div className="order-list" style={{ top: topValue }}>
         <div className="list-container">
           <div className="panel-heading">
             <span className>주문내역</span>
           </div>
-          <div className="restaurant-title">BBQ</div>
+          <div className="restaurant-title">{this.props.restaurant.name}</div>
 
           <ul className="list-group-order">
             <OrderMenu data={this.props.menus} />
@@ -75,9 +76,11 @@ class OrderList extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
       menus : state.menus,
-      totalPrice : state.total_price
+      totalPrice : state.total_price,
+      restaurant : state.restaurant
   }
 }
 

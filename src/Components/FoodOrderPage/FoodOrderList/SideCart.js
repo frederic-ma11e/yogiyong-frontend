@@ -4,19 +4,30 @@ import { withRouter } from 'react-router-dom';
 import SideCartMenu from "./SideCartMenu";
 import { connect } from "react-redux";
 import * as actionTypes from "../../../store/actions"
+import ResetModal from "./ResetModal";
 
 class SideCart extends Component {
   constructor(props) {
     super(props);
     this.state = {
       foodDada:false,
-      foodOrder2:""
+      foodOrder2:"",
+      isModalOpen: false
     };
   }
 
   goToOrderPage = () => {
     this.props.history.push('/food-order');
   };
+
+  openModal = () => {
+    this.setState({ isModalOpen: true });
+  }
+
+  closeModal = () => {
+    this.setState({ isModalOpen: false }); 
+  }
+
 
   render() {
 
@@ -30,13 +41,13 @@ class SideCart extends Component {
           <SideCartMenu 
             data={el} />)
     }
-  
       
     return (
       <div className="sideCartContainer">
         <div className="sideCartContainer__title">
           주문표
-          <div className="trashBin" />
+          <div className="trashBin" onClick={this.openModal}/>
+          <ResetModal isOpen={this.state.isModalOpen} close={this.closeModal} />
         </div>
 
         <div className="sideCartContainer__List">
