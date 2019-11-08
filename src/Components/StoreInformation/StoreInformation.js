@@ -61,26 +61,26 @@ class StoreInformation extends React.Component {
                             {data.name}
                         </div>
                         <div className="store-list__store-detail">
-                            <span className="store-list__store-detail-rate">
+                            <div className="store-list__store-detail-rate">
                                 ★ {data.review_avg}
-                            </span>
-                            <span className="for-space">
+                            </div>
+                            <div className="for-space">
                                 l
-                            </span>
-                            <span>
+                            </div>
+                            <div>
                                 리뷰  {data.review_count}
-                            </span>
+                            </div>
                         </div>
                         <div className="store-list__store-last-column">
-                            <span className="store-list__store-detail-paymethod">
+                            <div className="store-list__store-detail-paymethod">
                                 요기서 결제
-                            </span>
-                            <span className="for-space">
+                            </div>
+                            <div className="for-space">
                                 l
-                            </span>
-                            <span className="store-li">
+                            </div>
+                            <div className="store-li">
                                 {accNum}원 이상 배달
-                            </span>
+                            </div>
                         </div>
                         <div>
                             {

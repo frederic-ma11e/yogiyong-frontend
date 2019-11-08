@@ -9,6 +9,7 @@ import Header from 'Components/Header'
 import SearchContainer from 'Components/MainPage/SearchContainer'
 import Footer from 'Components/Footer'
 import { Link } from 'react-router-dom'
+import StoreRangeSelectBox from '../StoreRangeSelectBox/StoreRangeSelectBox'
 
 class StoreList extends React.Component {
     constructor(props) {
@@ -197,6 +198,20 @@ class StoreList extends React.Component {
 
                     </Link>
                     {categoriesNav}
+                </div>
+                <div className="store-list__mini-header">
+                    <div className="store-list__mini-header__left">
+                        <div className="thisisforspace">
+                            음식점
+                        </div>
+                        <div className="thisisjustforcolor">
+                            {this.state.restaurants.length}
+                        </div>
+                        <div>
+                            곳을 찾았습니다.
+                        </div>
+                    </div>
+                    < StoreRangeSelectBox />
                 </div>
                 {
                     this.state.restaurants &&
