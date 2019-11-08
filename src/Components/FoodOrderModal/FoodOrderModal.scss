@@ -1,19 +1,19 @@
-.detail{
-  width: 460px;
+.detail {
+  max-width: 460px;
   line-height: 100%;
   background-color: #fff;
   left: 50%;
   top: 105px;
   margin: 0 auto;
   margin-left: -230px;
-  
+
   position: absolute;
   &-header {
     width: auto;
     height: 60px;
     text-align: center;
     background-color: white;
-    padding: 18px 0px  0px;
+    padding: 18px 0px 0px;
     border-bottom: 1px solid #e5e5e5;
 
     &__title {
@@ -22,13 +22,13 @@
       font-size: 17px;
       font-family: 맑은고딕;
       display: inline-block;
-      margin-left:20px ;
+      margin-left: 20px;
     }
     .close-img {
       width: 24px;
       height: 24px;
-      background-image: url('../../Images/sprite-icon.png');
-      background-position:-197px -337px;
+      background-image: url("../../Images/sprite-icon.png");
+      background-position: -197px -337px;
       background-color: white;
       background-size: 464px;
       display: inline;
@@ -38,159 +38,151 @@
     }
   }
 
-
-  &-content{
-    
-
-
-  &-image{
-    width: 100%;
-    height: 220px;
-    text-align: center;
-    .menu-image{
+  &-content {
+    &-image {
+      width: 100%;
       height: 220px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-
-    }
-  }
-
-
-  &-text {
-    width: 100%;
-    height: 69.8px;
-    color: #333333;
-    font-size: 24px;
-    font-family: 맑은고딕;
-    padding: 20px;
-    text-align: center;
-    background-color: white;
-  }
-
-  &-price {
-    border-top: 1px solid #f0f0f0;
-    width: 100%;
-    height: 55.8px;
-    padding: 20px 15px 15px;
-
-    .price-strong{
-      float: left;
-      font-size: 15px;
-      font-family: 맑은고딕;
-      font-weight: bold;
-    }
-    &__binding {
-      float: right;
-      font-size: 15px;
-    font-weight: bold;
-    font-family: 맑은고딕
-    }
-  }
-
-  &-quantity-control {
-    width: 100%;
-    height: 57.8px;
-    border-top: 1px solid #f0f0f0;
-    padding: 18px 15px;
-
-    display: inline-block;
-
-    .quantity-strong {
-      float: left;
-      font-size: 15px;
-      font-family: 맑은고딕;
-      font-weight: bold;
-    }
-
-    .quantity-nums-container{
-      float: right;
-      display: flex;
-      
-      .minus, .plus {
-        width: 35px;
-        height: 35px;
-        background-color: white;
-        background-size: 398px;
-        cursor: pointer;
-        background-image: url('../../Images/sprite-icon.png');
+      text-align: center;
+      .menu-image {
+        height: 220px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
       }
+    }
 
-      .minus {
-        background-position: -279px -45px;
+    &-text {
+      width: 100%;
+      height: 69.8px;
+      color: #333333;
+      font-size: 24px;
+      font-family: 맑은고딕;
+      padding: 20px;
+      text-align: center;
+      background-color: white;
+    }
 
-        
-      }
-      .inactive{
-        background-color: white;
-        opacity: 0.4;
-        cursor: default;
-     }
-      .quantity-count {
-        width: 50px;
-        height: 29px;
-        line-height: 29px;
-        font-weight: bold;
+    &-price {
+      border-top: 1px solid #f0f0f0;
+      width: 100%;
+      height: 55.8px;
+      padding: 20px 15px 15px;
+
+      .price-strong {
+        float: left;
         font-size: 15px;
-        text-align: center;
-        font-family: 맑은고딕;
-        color: #333333;
-        
-    border-top: 1.2px solid #f17a88;
-    border-bottom: 1.2px solid #f17a88;
-      }
-      .plus {
-        background-position:-243px -45px;
-      }
-    }
-  }
-
-
-  &-total {
-    width: 100%;
-    height: 83.2px;
-    padding: 20px 15px 15px;
-    border-top: 1px solid #f0f0f0;
-    background-color: #e7e7e7;
-
-    .total-strong{
-      float: left;
-      font-size: 15px;
-      font-family: 맑은고딕;
-      font-weight: bold;
-    }
-
-    .detail-content-total-binding{
-      float: right;
-      height: 100%;
-
-      .total-price-strong{
-        width: 100%;
-        float: right;
-        text-align: right;
-        color: #F0001E;
-        font-size: 24px;
         font-family: 맑은고딕;
         font-weight: bold;
       }
-      .min-price{
-        height: 16px;
-        font-size: 12px;
-        font-family: 맑은고딕;
-        color: #333333;
-        margin-top: 10px;
+      &__binding {
         float: right;
-        text-align: right;
+        font-size: 15px;
+        font-weight: bold;
+        font-family: 맑은고딕;
+      }
+    }
+
+    &-quantity-control {
+      width: 100%;
+      height: 57.8px;
+      border-top: 1px solid #f0f0f0;
+      padding: 18px 15px;
+
+      display: inline-block;
+
+      .quantity-strong {
+        float: left;
+        font-size: 15px;
+        font-family: 맑은고딕;
+        font-weight: bold;
       }
 
+      .quantity-nums-container {
+        float: right;
+        display: flex;
+
+        .minus,
+        .plus {
+          width: 35px;
+          height: 35px;
+          background-color: white;
+          background-size: 398px;
+          cursor: pointer;
+          background-image: url("../../Images/sprite-icon.png");
+        }
+
+        .minus {
+          background-position: -279px -45px;
+        }
+        .inactive {
+          background-color: white;
+          opacity: 0.4;
+          cursor: default;
+        }
+        .quantity-count {
+          width: 50px;
+          height: 29px;
+          line-height: 29px;
+          font-weight: bold;
+          font-size: 15px;
+          text-align: center;
+          font-family: 맑은고딕;
+          color: #333333;
+
+          border-top: 1.2px solid #f17a88;
+          border-bottom: 1.2px solid #f17a88;
+        }
+        .plus {
+          background-position: -243px -45px;
+        }
+      }
+    }
+
+    &-total {
+      width: 100%;
+      height: 83.2px;
+      padding: 20px 15px 15px;
+      border-top: 1px solid #f0f0f0;
+      background-color: #e7e7e7;
+
+      .total-strong {
+        float: left;
+        font-size: 15px;
+        font-family: 맑은고딕;
+        font-weight: bold;
+      }
+
+      .detail-content-total-binding {
+        float: right;
+        height: 100%;
+
+        .total-price-strong {
+          width: 100%;
+          float: right;
+          text-align: right;
+          color: #f0001e;
+          font-size: 24px;
+          font-family: 맑은고딕;
+          font-weight: bold;
+        }
+        .min-price {
+          height: 16px;
+          font-size: 12px;
+          font-family: 맑은고딕;
+          color: #333333;
+          margin-top: 10px;
+          float: right;
+          text-align: right;
+        }
+      }
     }
   }
-}
 
   &-btn-wrap {
     bottom: 0;
     width: 100%;
-    .btn-add-cart, .btn-order{
+    .btn-add-cart,
+    .btn-order {
       float: left;
       width: 50%;
       line-height: 48px;
@@ -198,25 +190,18 @@
       font-size: 16px;
       font-weight: bold;
       padding-top: 4px;
-      margin: 0;    
+      margin: 0;
       cursor: pointer;
       text-align: center;
     }
-      .btn-add-cart{
-        background: #555;
+    .btn-add-cart {
+      background: #555;
       color: #fff;
-      }
-      
-      .btn-order{
-        background: #f0001e;
+    }
+
+    .btn-order {
+      background: #f0001e;
       color: #fff;
-      }
-    
-    
-    
+    }
   }
- 
-
-
 }
-

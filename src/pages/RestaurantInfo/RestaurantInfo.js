@@ -117,15 +117,15 @@ class RestaurantInfo extends Component {
 
     handleClick=(tab)=>{
         //console.log(this.state)
-        if(tab==="ownerMsg"){
-            //console.log("clicked")
-            let updatedMenuTabs = {...this.state.infoTab} //copy &paste
-            updatedMenuTabs["menuTab"] = false
-            updatedMenuTabs["reviewTab"] = false
-            updatedMenuTabs["infoTab"] = true
-            this.setState({menuTabs : updatedMenuTabs});
+        // if(tab==="ownerMsg"){
+        //     //console.log("clicked")
+        //     let updatedMenuTabs = {...this.state.infoTab} //copy &paste
+        //     updatedMenuTabs["menuTab"] = false
+        //     updatedMenuTabs["reviewTab"] = false
+        //     updatedMenuTabs["infoTab"] = true
+        //     this.setState({menuTabs : updatedMenuTabs});
             
-        }
+        // }
         if(tab==="menuTab"){
             let updatedMenuTabs = {...this.state.menuTabs}
             updatedMenuTabs["menuTab"] = true
@@ -172,7 +172,6 @@ class RestaurantInfo extends Component {
     }
         
         //style={{backgroundImage:`url(${this.props.image})`}}
-
         let paymentInfos = ""
         if(this.state.paymentInfo) {
             paymentInfos = this.state.paymentInfo.map(el => {
@@ -220,10 +219,10 @@ class RestaurantInfo extends Component {
                             </ul>
                         </div>
                         
-                        <div id="ownerMsg" className="ownerMsg" onClick={()=>{this.handleClick("infoTab")}}>
+                        {/* <div id="ownerMsg" className="ownerMsg" onClick={()=>{this.handleClick("infoTab")}}>
                             <strong>사장님알림</strong>
                             <span>{this.state.ownerMsg}</span>   {/* 나중에 수정 */}
-                        </div>
+                        {/* </div> */} 
                     </div>
                     <HorizonMenu menuTabs={this.state.menuTabs} 
                     clickdata={this.state.ownerMsgClicked} 
