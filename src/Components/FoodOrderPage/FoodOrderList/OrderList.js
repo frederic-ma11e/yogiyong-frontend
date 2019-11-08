@@ -4,6 +4,8 @@ import OrderMenu from "./OrderMenu";
 import FoodOrderCheckList from "../FoodOrderCheckList";
 import FoodOrderPrice from "../FoodOrderPrice";
 import data from "Data/orderListData";
+import {connect} from "react-redux";
+import * as actionTypes from "../../../store/actions"
 import SideCartMenu from "./SideCartMenu";
 
 class OrderList extends Component {
@@ -48,20 +50,21 @@ class OrderList extends Component {
 
   render() {
     const { topValue, menu } = this.state;
+    console.log(this.props.restaurant)
     return (
       <div className="order-list" style={{ top: topValue }}>
         <div className="list-container">
           <div className="panel-heading">
             <span className>주문내역</span>
           </div>
-          <div className="restaurant-title">BBQ</div>
+          <div className="restaurant-title">{this.props.restaurant.name}</div>
 
           <ul className="list-group-order">
-            {/* <OrderMenu data={menu} /> */}
-            <SideCartMenu/>
+            <OrderMenu data={this.props.menus} />
+            {/* <SideCartMenu/> */}
           </ul>
 
-          <FoodOrderPrice menu={menu} />
+          <FoodOrderPrice total_price={this.props.totalPrice} />
           <FoodOrderCheckList />
 
           <button className="pay-btn">주문완료</button>
@@ -72,4 +75,13 @@ class OrderList extends Component {
   }
 }
 
-export default OrderList;
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+      menus : state.menus,
+      totalPrice : state.total_price,
+      restaurant : state.restaurant
+  }
+}
+
+export default connect(mapStateToProps)(OrderList);

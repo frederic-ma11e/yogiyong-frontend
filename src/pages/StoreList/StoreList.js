@@ -3,8 +3,14 @@ import { withRouter } from "react-router-dom";
 import StoreInformation from 'Components/StoreInformation'
 import './StoreList.scss'
 import StoreCategories from 'Components/StoreCategories'
-import Magnifier from 'Images/magnifier.png'
+import Magnifier from 'Images/icons.png'
 import axios from 'axios';
+import Header from 'Components/Header'
+import SearchContainer from 'Components/MainPage/SearchContainer'
+import Footer from 'Components/Footer'
+import { Link } from 'react-router-dom'
+import StoreRangeSelectBox from '../StoreRangeSelectBox/StoreRangeSelectBox'
+import GoogleMaps from "../../Components/GoogleMaps/GoogleMaps"
 
 class StoreList extends React.Component {
     constructor(props) {
@@ -14,19 +20,19 @@ class StoreList extends React.Component {
                 {}
             ],
             categories: [],
-            additionalRenderNum: 1,
-            job: [],
+            additionalRenderNum: 0,
+            tags: "",
+            cesco: false
         }
-        // this.scrollHandler = this.scrollHandler.bind(this)
     }
 
     handleRender = (cat_id) => {
-        // let { categoryId } = this.props.match.params
-        axios(`http://10.58.3.24:8000/restaurant/category/${cat_id}?order_method=review_avg`)
+        axios(`http://10.58.3.24:8000/restaurant/category/${cat_id}?order_method=review_avg&pageNum=0`)
             .then(res => {
                 console.log("date from fetch===", res)
                 this.setState({
-                    restaurants: res.data.restaurants
+                    restaurants: res.data.restaurants,
+                    additionalRenderNum: 0,
                 })
             })
 
@@ -34,45 +40,40 @@ class StoreList extends React.Component {
 
     }
 
-    // scrollHandler = () => {
-    //     console.log("run")
-    //     let y = 500
-    //     console.log("value of Y ===", y)
-    //     let a = window.scrollY;
-    //     if (a > y) {
-    //         y = y + 2200;
-    //         console.log("new Y===", y)
-    //         this.setState({
-    //             additionalRenderNum: this.state.additionalRenderNum + 1
-    //         })
-    //     }
-    //     const { categoryId } = this.props.match.params;
-    //     axios(`http://10.58.3.24:8000/restaurant/category/${categoryId}?order_method=review_avg&pageNum=${this.state.additionalRenderNum}`)
-    //         .then(res => {
-    //             console.log("new axios===", res)
-    //             console.log(res.data.restaurants)
-    //             const { restaurants } = this.state;
-    //             this.setState({
-    //                 restaurants: restaurants.concat(res.data.restaurants)
-    //                 // job: res.data.job
-    //             })
-    //         })
-    //     console.log("is scrollHandler working?===", this.state.additionalRenderNum)
+    handleScroll = (position) => {
+        if (position > document.body.scrollHeight) {
+            position = position + window.scrollY
+            this.setState({
+                additionalRenderNum: this.state.additionalRenderNum + 1
+            })
+        }
+        const { categoryId } = this.props.match.params
+        axios(`http://10.58.3.24:8000/restaurant/category/${categoryId}?order_method=review_avg&pageNum=${this.state.additionalRenderNum}`)
+            .then(res => {
+            
+                if (res.data.restaurants) {
+                    this.setState({
+                        restaurants: this.state.restaurants.concat(res.data.restaurants),
 
-    // }
-    // shouldComponentUpdate = (nextState) => {
-    //     if (this.state.restaurants !== nextState.restaurants) {
-    //         return true;
-    //     }
-    // }
+                    })
+                }
+                else if (res.data.RESULT = "NO_MORE_PAGE") {
+                    this.setState({
+                        restaurants: this.state.restaurants.concat()
+                    })
+                }
+            })
+        console.log(window.scrollY)
+
+    }
     componentDidMount() {
+        window.scrollTo(0, 0)
         axios('http://10.58.3.24:8000/restaurant')
             .then(res => {
-                console.log(res)
                 this.setState({ categories: res.data.categories })
             })
-
-        axios(`http://10.58.3.24:8000/restaurant/category/1?order_method=review_avg&page=${this.state.additionalRenderNum}`)
+        const { categoryId } = this.props.match.params
+        axios(`http://10.58.3.24:8000/restaurant/category/${categoryId}?order_method=review_avg&pageNum=${this.state.additionalRenderNum}`)
 
             .then(res => {
                 console.log("new axios===", res)
@@ -80,38 +81,19 @@ class StoreList extends React.Component {
                     restaurants: res.data.restaurants
                 })
             })
+       
+        window.addEventListener("scroll", () => {
+            let position = window.innerHeight + window.scrollY + 50
+            if (position > document.body.scrollHeight) {
+                this.handleScroll(position)
+            }
+        })
 
-
-        //success case 1
-        //==============================
-        // let position = 0
-        // window.addEventListener("scroll", () => {
-        //     console.log("test", window.scrollY)
-        //     if (window.scrollY > 400 + position) {
-        //         position = window.scrollY
-        //         this.scrollHandler(window.scrollY)
-        //     }
-        // })
-
-        //=================================
-
-        // )
-        // window.addEventListener("scroll", () => {
-        //     this.scrollHandler(y);
-        // })
-        // let { categoryId } = this.props.match.params
-        // axios(`http://10.58.3.24:8000/restaurant/category/${data}?order_method=review_avg`)
-        //     .then(res => {
-        //         console.log(res)
-        //         this.setState({
-        //             restaurants: res.data.restaurants
-        //         })
-        //     })
     }
 
     render() {
         console.log("param===", this.props.match)
-        console.log("2222====", this.state)
+        console.log("2222====", this.state.restaurants)
 
         let categoriesNav = ""
         if (this.state.categories) {
@@ -122,21 +104,52 @@ class StoreList extends React.Component {
         }
         return (
             <>
-                <div>
-                    {this.state.job.position}
-                </div>
+                <Header />
+                <SearchContainer />
                 <div className="store-list__category">
-                    <div>
-                        {/* <img className = "magnifier" src={Magnifier}>
-                    </img> */}
+                    <div className="magnifier-container">
                         <label id="9">
-                            <img className="magnifier" src={Magnifier} id="9">
-                            </img>
+                            <div
+                                className="magnifier"
+                                src={Magnifier}
+                                id="9"
+                            >
+                            </div>
                         </label>
                     </div>
+                    <Link
+                        to={`/storelist/1`}
+                        onClick={() => this.handleRender(1)}
+                    >
+
+                        <div className="store-list__category__section" id="see-all-button">
+                            전체보기
+                        </div>
+
+                    </Link>
                     {categoriesNav}
                 </div>
-                {this.state.restaurants &&
+                <div className="store-list__mini-header">
+                    <div className="store-list__mini-header__left">
+                        <div className="thisisforspace">
+                            음식점
+                        </div>
+                        <div className="thisisjustforcolor">
+                            {this.state.restaurants.length}
+                        </div>
+                        <div>
+                            곳을 찾았습니다.
+                        </div>
+                    </div>
+                    < StoreRangeSelectBox />
+                </div>
+                <div className="google-maps-wrapper">
+                    <div className="google-maps">
+                        {this.state.restaurants && <GoogleMaps restaurants={this.state.restaurants}/>}
+                    </div>
+                </div>
+                {
+                    this.state.restaurants &&
 
                     <div className="store-list">
                         {this.state.restaurants.map((info, index) => (
@@ -144,6 +157,7 @@ class StoreList extends React.Component {
                         ))}
                     </div>
                 }
+                <Footer />
             </>
 
         )

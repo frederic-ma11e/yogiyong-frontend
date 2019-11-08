@@ -1,8 +1,17 @@
 import React from 'react';
 import './ResetModal.scss';
+import {connect} from "react-redux";
+import * as actionTypes from "../../../store/actions"
 
-const ResetModal = ({ isOpen, close }) => {
-    console.log(isOpen)
+const ResetModal = (props) => {
+
+    const { isOpen, close } = props
+
+    const isConfirmBtnClicked = () => {
+      close();
+      props.onOrderMenusReset();
+    }
+
     return (
       <React.Fragment>
       {
@@ -14,7 +23,7 @@ const ResetModal = ({ isOpen, close }) => {
                 <div className="resetModalBody">주문 메뉴를 모두 삭제하시겠습니까?</div>
                 <div className="resetFooter">
                     <div className="cancelBtn" onClick={close}>취소</div>   
-                    <div className="okBtn" >확인</div>
+                    <div className="okBtn" onClick={isConfirmBtnClicked}>확인</div>
                 </div>
             </div>
     </React.Fragment>
@@ -23,4 +32,11 @@ const ResetModal = ({ isOpen, close }) => {
 </React.Fragment>
 )
 }
-export default ResetModal;
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onOrderMenusReset : () => dispatch({type : actionTypes.RESET_MENU})
+  }
+}
+
+export default connect(null, mapDispatchToProps)(ResetModal);

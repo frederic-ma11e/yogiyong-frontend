@@ -1,20 +1,56 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './StoreInformation.scss'
+import { Link } from 'react-router-dom'
+import DiscountTag from '../DiscountTag/DiscountTag'
+import CescoTag from '../CescoTag/CescoTag'
 
-class StoreInformation extends Component {
+
+class StoreInformation extends React.Component {
 
     // restaurantClicked = () => {
     //     // this.props.history.push('/')
     // }
-
+    constructor(props) {
+        super(props)
+        this.state = {
+            discountTag: "",
+            cescoTag: false,
+            tags: true
+        }
+    }
+    componentDidMount() {
+        // let a = []
+        // let b = this.props.data.tags
+        if (this.props.data.additional_discount) {
+            this.setState({
+                discountTag: "discount"
+            })
+        }
+        console.log("didmount tags===", this.props.data.tags)
+        if (this.props.data.tags && this.props.data.tags[0]) {
+            this.setState({
+                cescoTag: true
+            })
+            console.log("33333====", this.state)
+        }
+    }
     render() {
         // const data = this.props.data;
+        console.log("render tags===", this.props.data.tags)
         const { data } = this.props;
+
+        // let Cesco = ""
+        // if (data.tags[0] === true && data.tags[0] === "CESCO") {
+        //     Cesco =  this.props.data && <CescoTag style={data.tags[0]} /> 
+        // }
 
         let accNum = Math.floor(data.threshold)
         let imgSrc = "https://www.yogiyo.co.kr" + data.logo_url
         return (
-            <div className="store-list__store-container" onClick={this.restaurantClicked}>
+            <Link
+                className="store-list__store-container"
+                to={`/restaurant/${data.id}`}
+            >
                 <div className="store-list__store">
                     <div>
                         <img className="store-list__store-logo" src={imgSrc}>
@@ -25,22 +61,36 @@ class StoreInformation extends Component {
                             {data.name}
                         </div>
                         <div className="store-list__store-detail">
-                            <img>
-                            </img>
-                            <span>
+                            <div className="store-list__store-detail-rate">
                                 ★ {data.review_avg}
-                            </span>
-                            <span>
+                            </div>
+                            <div className="for-space">
+                                l
+                            </div>
+                            <div>
                                 리뷰  {data.review_count}
-                            </span>
+                            </div>
+                        </div>
+                        <div className="store-list__store-last-column">
+                            <div className="store-list__store-detail-paymethod">
+                                요기서 결제
+                            </div>
+                            <div className="for-space">
+                                l
+                            </div>
+                            <div className="store-li">
+                                {accNum}원 이상 배달
+                            </div>
                         </div>
                         <div>
-                            <span>
-                                {data.storePayMethod}
-                            </span>
-                            <span>
-                                {accNum}원이상 배달
-                            </span>
+                            {
+                                data.additional_discount > 0 &&
+                                <DiscountTag style={data.additional_discount} />
+                            }
+                            {/* {Cesco} */}
+                            <div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -49,7 +99,7 @@ class StoreInformation extends Component {
                         {data.estimated_delivery_time}
                     </span>
                 </div>
-            </div>
+            </Link>
 
         )
     }
