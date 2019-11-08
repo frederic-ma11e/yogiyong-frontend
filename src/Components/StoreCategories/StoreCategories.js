@@ -20,7 +20,10 @@ class StoreCategories extends React.Component {
                         id={this.props.info.id}
                         onClick={() => this.props.click(this.props.info.id)}
                     >
-                        <div id={this.props.info.id}>
+                        <div
+                            id={this.props.info.id}
+                            className="store-list__category__section"
+                        >
                             {this.props.info.name}
                         </div>
                     </Link>
