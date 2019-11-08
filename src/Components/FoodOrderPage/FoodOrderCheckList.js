@@ -31,8 +31,8 @@ class FoodOrderCheckList extends Component { // 오른쪽에있는 주문내역�
   };
 
   handleArrowClick = () => {
-      this.setState({
-        displayMode: !this.state.displayMode
+    this.setState({
+      displayMode: !this.state.displayMode
     })
   };
 
@@ -62,7 +62,7 @@ class FoodOrderCheckList extends Component { // 오른쪽에있는 주문내역�
   };
 
   render() {
-    const {displayMode, checkListAll, checkList0, checkList1, checkList2, checkList3} =this.state
+    const { displayMode, checkListAll, checkList0, checkList1, checkList2, checkList3 } = this.state
     return (
       <div>
         <div className="check-set">
@@ -90,8 +90,8 @@ class FoodOrderCheckList extends Component { // 오른쪽에있는 주문내역�
           >
             <div className="check-box">
               <div
-                
-                className={`check-img ${checkList0?"checked":""}`} // !!!
+
+                className={`check-img ${checkList0 ? "checked" : ""}`} // !!!
                 onClick={this.handleClick}
                 id="checkList0"
               />
@@ -101,7 +101,7 @@ class FoodOrderCheckList extends Component { // 오른쪽에있는 주문내역�
 
             <div className="check-box">
               <div
-                className={`check-img ${checkList1?"checked":""}`} // !!
+                className={`check-img ${checkList1 ? "checked" : ""}`} // !!
                 onClick={this.handleClick}
                 id="checkList1"
               />
@@ -139,4 +139,3 @@ class FoodOrderCheckList extends Component { // 오른쪽에있는 주문내역�
 }
 
 export default FoodOrderCheckList;
-  
