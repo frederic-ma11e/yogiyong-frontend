@@ -8,6 +8,8 @@ import {connect} from "react-redux";
 import * as actionTypes from "../../../store/actions"
 import SideCartMenu from "./SideCartMenu";
 
+import { withRouter } from 'react-router-dom';
+
 class OrderList extends Component {
   state = {
     id: "",
@@ -15,6 +17,35 @@ class OrderList extends Component {
     menuclientHeight: "", // 메뉴 개수에 따라서 top의 크기를 변경하기위해 사용했습니다.
     menu: data.menu
   };
+
+  handleClick= () =>{
+    fetch("http://10.58.2.201:8004/order", {
+      method: "post",
+      body: JSON.stringify({
+        user_phone_number:this.props.phoneData, 
+        order_request:this.props.requestData, // 배달요청사항
+        restaurant:{"id":this.props.menus.id},// 가게 아이디값
+        delivery_fee:2000 , // 배달비
+        delivery_address:this.props.addressData+" "+this.props.detailAddressData,
+        payment_method:{"id":this.props.paymentData} ,
+        // payment_method:"creditcard","online" //카드
+        menus:[{"id":3},{"id":4}], // 메뉴
+        amounts:[2,1], // 메뉴 개수
+      })
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === "SUCCESS") {
+          console.log("ok")
+          //this.props.history.push("/main");//주문 땡스페이지
+         // localStorage.setItem("user_id", res.user_access_token);
+        }
+      });
+   this.goToSignup()
+    }
+  goToSignup() {
+    this.props.history.push('/thank-you');
+  }
   componentDidMount() {
     const { handleScroll } = this;
     window.addEventListener("scroll", handleScroll);
@@ -49,6 +80,7 @@ class OrderList extends Component {
   };
 
   render() {
+    console.log(this.props.menus)
     const { topValue, menu } = this.state;
     console.log(this.props.restaurant)
     return (
@@ -67,7 +99,7 @@ class OrderList extends Component {
           <FoodOrderPrice total_price={this.props.totalPrice} />
           <FoodOrderCheckList />
 
-          <button className="pay-btn">주문완료</button>
+          <button className="pay-btn" onClick={this.handleClick}>주문완료</button>
           {/* 모달 */}
         </div>
       </div>
@@ -84,4 +116,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(OrderList);
+export default connect(mapStateToProps)(withRouter(OrderList));

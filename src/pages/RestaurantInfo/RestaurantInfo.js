@@ -9,12 +9,14 @@ import '../../Components/RestaurantInfoPage/HorizonMenu.scss'
 import RestaurantInfoCategory from '../../Components/RestaurantInfoCategory'
 import Footer from '../../Components/Footer'
 import SideCart from "../../Components/FoodOrderPage/FoodOrderList/SideCart";
+import Review from '../../Components/Review';
 import {connect} from "react-redux"; 
 import * as actionTypes from "../../store/actions"; 
 
 class RestaurantInfo extends Component {
 
   constructor() {
+    
     super();
     this.state = {
       restaurantInfo: null,
@@ -79,7 +81,6 @@ class RestaurantInfo extends Component {
 
         let pathName = document.location.pathname;
         let id = pathName.split("/")[2]
-    
         fetch(`http://10.58.3.24:8000/restaurant/${id}`)
         .then(res=>{
             return res.json()})
@@ -169,6 +170,9 @@ class RestaurantInfo extends Component {
     }
     if (this.state.menuTabs.infoTab) {
       menuTabItems = <Infodetail info={this.state.restaurantInfo} />;
+    }
+    if(this.state.menuTabs.reviewTab){
+        menuTabItems = <Review/>
     }
         
         //style={{backgroundImage:`url(${this.props.image})`}}

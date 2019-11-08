@@ -44,7 +44,10 @@
         height: 44.89px;
         margin: 0px;
         background-color: transparent;
-        span {
+        @media screen and(max-width: 940px){
+          display: none;
+      }
+        span{
           font-size: 12px;
           font-family: 맑은고딕;
           color: #818181;
@@ -83,6 +86,9 @@
         width: 70px;
         height: 29px;
         float: left;
+        @media screen and(max-width: 994px){
+          display: none;
+      }
       }
     }
 
@@ -94,8 +100,10 @@
       font-family: 맑은고딕;
       color: #4d4d4d;
       float: left;
-
-      strong {
+      @media screen and(max-width: 994px){
+        margin-left: 0;
+    }
+      strong{
         display: block;
         color: #000;
         font-size: 14px;
@@ -117,7 +125,13 @@
     height: 38px;
     margin: 30px auto;
     padding: 0px 0px 0px 128px;
-
+    @media screen and(max-width: 994px){
+      padding: 0;
+      margin:0px;
+  }
+  @media screen and(max-width: 509px){
+    display: none;
+}
     &-bpg {
       width: 96px;
       height: 38px;
@@ -203,5 +217,11 @@
     font-family: 맑은고딕;
     margin: 0px auto;
     padding: 0px 0px 0px 128px;
+    @media screen and(max-width: 994px){
+      padding: 0;
+  }
+  @media screen and(max-width: 509px){
+    display: none;
+}
   }
 }

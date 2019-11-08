@@ -7,6 +7,7 @@ import * as actionTypes from "../../../store/actions"
 import "./SideCartMenu.scss"
 
 class SideCartMenu extends Component {
+  
   render() {
 
     const {name, total_price, count, id} = this.props.data
