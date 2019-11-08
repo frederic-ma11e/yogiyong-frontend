@@ -13,7 +13,7 @@
     background-color: black;
     color: white;
     padding: 10px 10px 10px 15px;
-    margin- .trashBin {
+    .trashBin {
       background-image: url("../../../Images/trashBin-icon2.png");
       background-size: 20px;
       width: 21px;
@@ -58,7 +58,7 @@
           width: 50%;
           padding: 0 12px;
           .closeBtn {
-            background-image: url('../../../Images/sprite-icon.png');
+            background-image: url("../../../Images/sprite-icon.png");
             background-size: 264px;
             background-position: 50px 182px;
             width: 20px;
@@ -77,7 +77,7 @@
           display: flex;
           float: right;
           .minusBtn {
-            background-image: url('../../../Images/sprite-icon.png');
+            background-image: url("../../../Images/sprite-icon.png");
             background-size: 264px;
             background-position: 76px 181px;
             width: 20px;
@@ -88,7 +88,7 @@
             text-align: center;
           }
           .plusBtn {
-            background-image: url('../../../Images/sprite-icon.png');
+            background-image: url("../../../Images/sprite-icon.png");
             background-size: 264px;
             background-position: 103px 181px;
             width: 20px;
@@ -135,5 +135,11 @@
       color: white;
       font-size: 18px;
     }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .sideCartContainer {
+    display: none;
   }
 }

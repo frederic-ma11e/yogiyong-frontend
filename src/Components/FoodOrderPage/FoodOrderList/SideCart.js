@@ -1,23 +1,34 @@
 import React, { Component } from "react";
 import "./SideCart.scss";
 import SideCartMenu from "./SideCartMenu";
+//import ResetModal from "../../RestaurantInfoPage/ResetModal";
+// import Modal from './Modal.js'
+import ResetModal from "./ResetModal";
+
+
 
 class SideCart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    //   menuTitle: "구이삼겹 1인",
-    //   menuPrice: 13500,
-    //   totalPrice: 0,
-    //   count: 1,
-    //   price: 0,
-    //   opacity: 0.3,
+      
       foodDada:false,
-      foodOrder2:""
-    };
-    
+      foodOrder2:"",
 
+      isModalOpen: false
+    };
   }
+
+  openModal = () => {
+    this.setState({ isModalOpen: true });
+  }
+
+  closeModal = () => {
+    this.setState({ isModalOpen: false }); 
+  }
+
+
+
 //this.props.foodOrder
   clickedMinusBtn = () => {
     if (this.state.count !== 1) {
@@ -42,6 +53,12 @@ class SideCart extends Component {
 //     }
 //   }
 
+  // openModal=()=>{
+  //       <ResetModal
+  //         resetOpen={this.state.resetModal} 
+  //         resetClose={this.state.closeResetModal}
+  //         onClick={this.state.openResetModal}/>
+  // }
 
   render() {
 
@@ -53,12 +70,21 @@ class SideCart extends Component {
             <SideCartMenu data={el}/>
             )
     }
+
       
     return (
       <div className="sideCartContainer">
         <div className="sideCartContainer__title">
           주문표
-          <div className="trashBin" />
+          {/* <div className="trashBin" onClick={(this.state.canClick && <ResetModal
+          resetOpen={this.state.resetModal} 
+          resetClose={this.state.closeResetModal}
+          onClick={this.state.openResetModal}/>) || null}/>
+           */}
+        <div className="trashBin" onClick={this.openModal}/>
+        <ResetModal isOpen={this.state.isModalOpen} close={this.closeModal} />
+           
+          
         </div>
 
         <div className="sideCartContainer__emptyList">
@@ -68,9 +94,6 @@ class SideCart extends Component {
         </div>
         <div>{menu}</div>
         <div className="sideCartContainer__List">
-
-
-
         </div>
         
       </div>
