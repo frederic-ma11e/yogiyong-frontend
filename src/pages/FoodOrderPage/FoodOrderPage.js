@@ -25,8 +25,6 @@ class FoodOrderPage extends Component {
   }) 
   }
 
- 
-
   render() {
     const { clientHeight, pageHeight }=this.state
     return (
