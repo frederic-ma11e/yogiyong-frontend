@@ -4,6 +4,8 @@ import OrderMenu from "./OrderMenu";
 import FoodOrderCheckList from "../FoodOrderCheckList";
 import FoodOrderPrice from "../FoodOrderPrice";
 import data from "Data/orderListData";
+import {connect} from "react-redux";
+import * as actionTypes from "../../../store/actions"
 import SideCartMenu from "./SideCartMenu";
 
 class OrderList extends Component {
@@ -57,11 +59,11 @@ class OrderList extends Component {
           <div className="restaurant-title">BBQ</div>
 
           <ul className="list-group-order">
-            {/* <OrderMenu data={menu} /> */}
-            <SideCartMenu/>
+            <OrderMenu data={this.props.menus} />
+            {/* <SideCartMenu/> */}
           </ul>
 
-          <FoodOrderPrice menu={menu} />
+          <FoodOrderPrice total_price={this.props.totalPrice} />
           <FoodOrderCheckList />
 
           <button className="pay-btn">주문완료</button>
@@ -72,4 +74,11 @@ class OrderList extends Component {
   }
 }
 
-export default OrderList;
+const mapStateToProps = state => {
+  return {
+      menus : state.menus,
+      totalPrice : state.total_price
+  }
+}
+
+export default connect(mapStateToProps)(OrderList);

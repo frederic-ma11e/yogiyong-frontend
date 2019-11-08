@@ -11,43 +11,103 @@ import Footer from '../../Components/Footer'
 import SideCart from "../../Components/FoodOrderPage/FoodOrderList/SideCart";
 
 class RestaurantInfo extends Component {
-    constructor(){
-        super()
-        console.log('RestaurantInfo', this.props)
-        //console.log("constructor")
-        this.state = {
-            restaurantInfo: null,
-            paymentInfo: null,
-            popularMenuInfo: null,
-            foodOrder: "",
-            menuTabs: {
-              menuTab: true,
-              reviewTab: false,
-              infoTab: false
-            }
-          };
-        }
+
+  constructor() {
+    super();
+    this.state = {
+      restaurantInfo: null,
+      paymentInfo: null,
+      popularMenuInfo: null,
+      foodOrder: "",
+      menuTabs: {
+        menuTab: true,
+        reviewTab: false,
+        infoTab: false
+      }
+    };
+  }
+
+  // componentDidMount() {
+  //   fetch("http://10.58.3.24:8000/restaurant/1")
+  //     .then(res => {
+  //       return res.json();
+  //     })
+  //     .then(res => {
+  //       this.setState({
+  //         restaurantInfo: res.restaurant,
+  //         paymentInfo: res.payment_methods,
+  //         popularMenuInfo: res.all_menus[0].menus
+  //       });
+  //     });
+  // }
+
+  handleClick = tab => {
+    if (tab === "ownerMsg") {
+      let updatedMenuTabs = { ...this.state.infoTab }; //copy &paste
+      updatedMenuTabs["menuTab"] = false;
+      updatedMenuTabs["reviewTab"] = false;
+      updatedMenuTabs["infoTab"] = true;
+      this.setState({ menuTabs: updatedMenuTabs });
+    }
+    if (tab === "menuTab") {
+      let updatedMenuTabs = { ...this.state.menuTabs };
+      updatedMenuTabs["menuTab"] = true;
+      updatedMenuTabs["reviewTab"] = false;
+      updatedMenuTabs["infoTab"] = false;
+
+      this.setState({ menuTabs: updatedMenuTabs });
+    }
+    if (tab === "reviewTab") {
+      let updatedMenuTabs = { ...this.state.reviewTab };
+      updatedMenuTabs["menuTab"] = false;
+      updatedMenuTabs["reviewTab"] = true;
+      updatedMenuTabs["infoTab"] = false;
+
+      this.setState({ menuTabs: updatedMenuTabs });
+    }
+    if (tab === "infoTab") {
+      let updatedMenuTabs = { ...this.state.infoTab };
+      updatedMenuTabs["menuTab"] = false;
+      updatedMenuTabs["reviewTab"] = false;
+      updatedMenuTabs["infoTab"] = true;
+    }
+  }
 
     componentDidMount() {
 
         let pathName = document.location.pathname;
         let id = pathName.split("/")[2]
-         // ["", "restaurant", "1"]
     
-
         fetch(`http://10.58.3.24:8000/restaurant/${id}`)
         .then(res=>{
             return res.json()})
         .then(res =>
             {
+            console.log("-----------RestaurantInfo------------")
             console.log(res)
-            this.setState({
+            if(res.all_menus.length !== 0) {
+              this.setState({
+                  restaurantInfo : res.restaurant,
+                  paymentInfo: res.payment_methods,
+                  popularMenuInfo: res.all_menus[0].menus
+              })
+            } else {
+              this.setState({
                 restaurantInfo : res.restaurant,
                 paymentInfo: res.payment_methods,
-                popularMenuInfo: res.all_menus[0].menus
-        })
+            })
+            }
     })
     }
+
+
+  // componentDidMount(){
+  setFoodOrder = order => {
+    console.log(order)
+    if (order.length !== 0) {
+      this.setState({ foodOrder: order });
+    }
+  }
 
     handleClick=(tab)=>{
         //console.log(this.state)

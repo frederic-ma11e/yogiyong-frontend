@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Modal from "react-modal";
 import "./FoodOrderModal.scss";
 import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import * as actionTypes from "../../store/actions";
 import FoodOrderCheckList from "../FoodOrderPage/FoodOrderCheckList";
 
 class FoodOrderModal extends Component {
@@ -11,31 +13,31 @@ class FoodOrderModal extends Component {
     this.state = {
       count: 1,
       price: 0,
-      foodOrder: [],
+      // foodOrder: [],
       test: true
     };
     
     this.addFood = () => {
-      const { price, name } = this.props.data;
+      const { price, name, id } = this.props.data;
       const { count } = this.state;
-      let data = [];
-      data.push([name, count ,price*count]);
-      
-      
+
+      this.props.onMenuAdded(
+        {
+        "id": id, 
+        "name" : name, 
+        "count" : count, 
+        "total_price" : price * count, 
+        "price" : Number(price)})
+
       this.setState({
-        foodOrder: [...this.state.foodOrder ,data]
-      },()=>{
-        this.props.setFoodOrder(this.state.foodOrder);
+        count: 1
+      })
       
-        // this.setState({
-        //   count:1
-        // })
-      });
     };
   }
 
   goToOrderPage = (c) => {
-    
+    this.addFood()
     this.props.history.push('/food-order');
   };
 
@@ -54,6 +56,9 @@ class FoodOrderModal extends Component {
   };
 
   render() {  
+
+    console.log("===========FoodOrderModal============")
+    console.log(this.props.menus)
     
     console.log("FoodModal")
     const { isOpen, isClose } = this.props;
@@ -128,4 +133,17 @@ class FoodOrderModal extends Component {
   }
 }
 
-export default withRouter(FoodOrderModal);
+const mapStateToProps = state => {
+  return {
+      menus: state.menus
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onMenuAdded: (menu) => dispatch({ type: actionTypes.ADD_MENU, added_menu : menu }),
+    onMenuRemoved: (menu) => dispatch({ type: actionTypes.REMOVE_MENU, removed_menu: menu})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(FoodOrderModal));
