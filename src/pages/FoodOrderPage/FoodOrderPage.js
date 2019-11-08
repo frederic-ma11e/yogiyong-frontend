@@ -13,7 +13,7 @@ class FoodOrderPage extends Component {
   
   handlesScroll = () =>{
     this.setState({
-      // pageHeight:document.querySelector('.root').clientHeight 
+      pageHeight:document.querySelector('.root').clientHeight 
     })
   }
   

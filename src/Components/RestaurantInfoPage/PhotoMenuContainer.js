@@ -12,17 +12,19 @@ export class PhotoMenuContainer extends Component {
             prevNextButtons: true,
             pageDots: true
         }
+        console.log("thisssss",this.props.data)
+        let items = "";
+        if(this.props.data) {
+            items = this.props.data.map(el => (
+                                <div className='photoMenuContainer__div'>
+                                    <img className='menuImg' src={el.image} />
+                                    <div className='menuName' >{el.name}</div>
+                                    <div className='menuPrice'>{Math.floor(el.price)}원</div>
+                                </div>
+            ))
+        }
 
-        let items = this.props.data.map(el => (
-                            <div className='photoMenuContainer__div'>
-                                <div className='menuImg'>{el.menuImg}</div>
-                                <div className='menuName' >{el.menuName}</div>
-                                <div className='menuPrice'>{el.menuPrice}</div>
-                            </div>
-        ))
-
-
-        return (
+         return (
             <div className='photoMenuContainer'>
                     <Flickity
                         className={'carousel'} // default ''

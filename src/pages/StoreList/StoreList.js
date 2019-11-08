@@ -5,6 +5,9 @@ import './StoreList.scss'
 import StoreCategories from 'Components/StoreCategories'
 import Magnifier from 'Images/magnifier.png'
 import axios from 'axios';
+import Header from 'Components/Header'
+import SearchContainer from 'Components/MainPage/SearchContainer'
+import Footer from 'Components/Footer'
 
 class StoreList extends React.Component {
     constructor(props) {
@@ -14,19 +17,21 @@ class StoreList extends React.Component {
                 {}
             ],
             categories: [],
-            additionalRenderNum: 1,
+            additionalRenderNum: 0,
             job: [],
+            // shrink: true
         }
         // this.scrollHandler = this.scrollHandler.bind(this)
     }
 
     handleRender = (cat_id) => {
         // let { categoryId } = this.props.match.params
-        axios(`http://10.58.3.24:8000/restaurant/category/${cat_id}?order_method=review_avg`)
+        axios(`http://10.58.3.24:8000/restaurant/category/${cat_id}?order_method=review_avg&pageNum=0`)
             .then(res => {
                 console.log("date from fetch===", res)
                 this.setState({
-                    restaurants: res.data.restaurants
+                    restaurants: res.data.restaurants,
+                    additionalRenderNum: 0,
                 })
             })
 
@@ -65,14 +70,39 @@ class StoreList extends React.Component {
     //         return true;
     //     }
     // }
+    handleScroll = (position) => {
+        if (position > document.body.scrollHeight) {
+            position = position + window.scrollY
+            this.setState({
+                additionalRenderNum: this.state.additionalRenderNum + 1
+            })
+        }
+        const { categoryId } = this.props.match.params
+        axios(`http://10.58.3.24:8000/restaurant/category/${categoryId}?order_method=review_avg&pageNum=${this.state.additionalRenderNum}`)
+            .then(res => {
+                console.log("date from fetch for scroll===", res)
+                if (res.data.restaurants) {
+                    this.setState({
+                        restaurants: this.state.restaurants.concat(res.data.restaurants),
+                    })
+                }
+                else if (res.data.RESULT = "NO_MORE_PAGE") {
+                    this.setState({
+                        restaurants: this.state.restaurants.concat()
+                    })
+                }
+            })
+        console.log(window.scrollY)
+
+    }
     componentDidMount() {
+        window.scrollTo(0, 0)
         axios('http://10.58.3.24:8000/restaurant')
             .then(res => {
-                console.log(res)
                 this.setState({ categories: res.data.categories })
             })
-
-        axios(`http://10.58.3.24:8000/restaurant/category/1?order_method=review_avg&page=${this.state.additionalRenderNum}`)
+        const { categoryId } = this.props.match.params
+        axios(`http://10.58.3.24:8000/restaurant/category/${categoryId}?order_method=review_avg&pageNum=${this.state.additionalRenderNum}`)
 
             .then(res => {
                 console.log("new axios===", res)
@@ -80,6 +110,15 @@ class StoreList extends React.Component {
                     restaurants: res.data.restaurants
                 })
             })
+        // let { categoryId } = this.props.match.params
+        // axios(`http://10.58.3.24:8000/restaurant/category/${categoryId}?order_method=review_avg&page=${this.state.additionalRenderNum}`)
+
+        //     .then(res => {
+        //         console.log("new axios===", res)
+        //         this.setState({
+        //             restaurants: res.data.restaurants
+        //         })
+        //     })
 
 
         //success case 1
@@ -107,6 +146,13 @@ class StoreList extends React.Component {
         //             restaurants: res.data.restaurants
         //         })
         //     })
+        window.addEventListener("scroll", () => {
+            let position = window.innerHeight + window.scrollY + 50
+            if (position > document.body.scrollHeight) {
+                this.handleScroll(position)
+            }
+        })
+
     }
 
     render() {
@@ -122,13 +168,13 @@ class StoreList extends React.Component {
         }
         return (
             <>
+                <Header />
+                <SearchContainer />
                 <div>
                     {this.state.job.position}
                 </div>
                 <div className="store-list__category">
                     <div>
-                        {/* <img className = "magnifier" src={Magnifier}>
-                    </img> */}
                         <label id="9">
                             <img className="magnifier" src={Magnifier} id="9">
                             </img>
@@ -144,6 +190,7 @@ class StoreList extends React.Component {
                         ))}
                     </div>
                 }
+                <Footer />
             </>
 
         )

@@ -37,13 +37,15 @@ class SignUp extends React.Component {
                     placeholder: "(필수) 휴대폰 전화번호 입력 (-제외)",
                     type: "number",
                     text: "인증",
-                    buttonType: "button"
+                    buttonType: "button",
+                    name: "phoneNumber"
                 },
                 {
                     placeholder: "인증번호 입력",
                     type: "number",
                     text: "확인",
-                    buttonType: "button"
+                    buttonType: "button",
+                    name: "certificateNum"
                 }
             ],
             personalInformation: {
@@ -51,6 +53,10 @@ class SignUp extends React.Component {
                 pwd: "",
                 repwd: "",
                 nickname: ""
+            },
+            certify: {
+                phoneNumber: "",
+                certificateNum: ""
             }
         };
     }
@@ -67,20 +73,27 @@ class SignUp extends React.Component {
         const { personalInformation } = this.state
         if (personalInformation.pwd === personalInformation.repwd) {
             return fetch('http://10.58.2.201:8004/user/signup', {
-            method: 'POST',
-            header: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                'email': this.state.personalInformation.email,
-                'password': this.state.personalInformation.pwd,
-                'nickname': this.state.personalInformation.nickname
+                method: 'POST',
+                header: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    'email': this.state.personalInformation.email,
+                    'password': this.state.personalInformation.pwd,
+                    'nickname': this.state.personalInformation.nickname
+                })
             })
-        })
-            .then(response => response.json())
-            .then(response => console.log(response))
+                .then(response => response.json())
+                .then(response => console.log(response))
         }
     }
+    // handleCertification = (event) => {
+    //     this.setState({
+    //         certify[phoneNumber: event.target.value
+    //     })
+    //     console.log(this.state)
+
+    // }
 
     // handleSubmit = () => {
     //     fetch('http://10.58.2.201:8004/user/signup', {
@@ -119,7 +132,9 @@ class SignUp extends React.Component {
                         </div>
                         <div className="join-form__phone-verification">
                             <strong className="join-form__text-box">휴대폰 인증</strong>
-                            <PhoneInfo data={this.state.phoneInformation} />
+                            <PhoneInfo
+                                data={this.state.phoneInformation}
+                            />
                             <p className="join-form__text-box-small">    인증번호가 도착하지 않았을 경우 '인증'버튼을 다시 눌러주세요. </p>
                         </div>
                         <strong className="join-form__text-box">약관동의</strong>
