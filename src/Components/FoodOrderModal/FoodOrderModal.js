@@ -21,6 +21,8 @@ class FoodOrderModal extends Component {
       const { price, name, id } = this.props.data;
       const { count } = this.state;
 
+      this.props.onRestaurantInfoAdded(this.props.restaurant) 
+
       this.props.onMenuAdded(
         {
         "id": id, 
@@ -142,7 +144,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onMenuAdded: (menu) => dispatch({ type: actionTypes.ADD_MENU, added_menu : menu }),
-    onMenuRemoved: (menu) => dispatch({ type: actionTypes.REMOVE_MENU, removed_menu: menu})
+    onMenuRemoved: (menu) => dispatch({ type: actionTypes.REMOVE_MENU, removed_menu: menu}),
+    onRestaurantInfoAdded: (restaurantInfo) => dispatch({type : actionTypes.ADD_RESTAURANT_INFO, restaurant_info: restaurantInfo}) 
   }
 }
 

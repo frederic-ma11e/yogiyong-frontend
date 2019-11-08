@@ -66,6 +66,7 @@ class RestaurantInfoCategory extends Component {
         {list}
         {this.state.modalData && (
           <FoodOrderModal
+            restaurant={this.props.restaurant}
             setFoodOrder={this.props.setFoodOrder}
             isOpen={this.state.modal}
             isClose={this.handleCloseModal}

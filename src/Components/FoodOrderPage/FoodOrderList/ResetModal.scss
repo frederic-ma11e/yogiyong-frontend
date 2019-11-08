@@ -1,15 +1,29 @@
-@import "../../Styles/color.scss";
-@import "../../Styles/reset.scss";
+@import "Styles/color.scss";
+@import "Styles/reset.scss";
+
+.Modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.16);
+}
 
 .resetModalContainer {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   width: 600px;
+  z-index: 1;
+  position: fixed;
+  left: 25%;
+  top: 30%;
   .resetModalTitle {
     background-color: black;
     color: white;
     padding: 18px 20px;
     height: 50px;
     .closeImg {
-      background-image: url("../../Images/sprite-icon.png");
+      background-image: url("../../../Images/sprite-icon.png");
       background-size: 300px;
       background-position: 237px 54px;
       width: 23px;
@@ -21,12 +35,15 @@
     padding: 20px;
     border-left: 1px solid $font--lightgrey;
     border-right: 1px solid $font--lightgrey;
+    background: white;
+    color: black;
   }
   .resetFooter {
     border: 1px solid $font--lightgrey;
     padding: 9px 15px;
     display: flex;
     text-align: center;
+    background-color: white;
 
     .cancelBtn {
       border: 1px solid red;

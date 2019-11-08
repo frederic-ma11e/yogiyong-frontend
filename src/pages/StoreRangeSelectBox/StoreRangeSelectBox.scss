@@ -1,0 +1,23 @@
+.store-list__mini-header__right {
+  width: 50%;
+  padding-left: 10px;
+  &__select-box {
+    justify-content: flex-end;
+  }
+}
+.store-list__mini-header__right__select-box {
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border-radius: 8px;
+  cursor: pointer;
+  //   width: 49%;
+  text-align: center;
+  padding: 2px 10px;
+  font-size: 16px;
+  //   margin-right: 220px;
+  width: 100%;
+  background-color: white;
+  position: relative;
+  border: 1px solid #e5e5e5;
+}

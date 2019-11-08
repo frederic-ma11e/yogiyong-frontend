@@ -13,21 +13,12 @@ class GoogleMaps extends Component {
         }
     }
 
-    componentDidMount() {
-        // axios("http://localhost:8000/restaurant/nearby?lat=37&lng=127")
-        //     .then(res => {
-        //         console.log(res)
-        //         this.setState({stores : res.data.restaurants})
-        //     })
-        // this.setState({stores : this.state.stores})
-    }
-
     render() {
 
         let markers = ""
 
-        if(this.state.stores) {
-            markers = this.state.stores.map((el,idx) => 
+        if(this.props.restaurants) {
+            markers = this.props.restaurants.map((el,idx) => 
                 <Marker key={idx} id={idx} position={{
                     lat: el.lat,
                     lng: el.lng
@@ -55,6 +46,6 @@ export default GoogleApiWrapper({
 })(GoogleMaps)
 
 const mapStyles = {
-    width : '800px',
+    width : '1200px',
     height : '350px',
 }
