@@ -5,16 +5,16 @@ class MemberInfo extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-                    email: "",
-                    pwd: "",
-                    repwd: "",
-                    nickname: ""
-                }
+            email: "",
+            pwd: "",
+            repwd: "",
+            nickname: ""
+        }
     }
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
-        },()=> (this.props.onSave(this.state)))
+        }, () => (this.props.onSave(this.state)))
 
         // this.props.onInput(this.state)
     }
@@ -36,7 +36,7 @@ class MemberInfo extends React.Component {
         return (
             <div>
                 <ul className="join-form__input-list-group">
-                    <li className = "join-form__input-list">
+                    <li className="join-form__input-list">
                         <input
                             className="join-form__input"
                             placeholder={this.props.data[0].placeholder}
@@ -45,7 +45,7 @@ class MemberInfo extends React.Component {
                             onChange={this.handleChange}>
                         </input>
                     </li>
-                    <li className = "join-form__input-list">
+                    <li className="join-form__input-list">
                         <input
                             className="join-form__input"
                             placeholder={this.props.data[1].placeholder}
@@ -55,7 +55,7 @@ class MemberInfo extends React.Component {
                         </input>
                         <span> {(pwdErrMsg) < 8 && (pwdErrMsg > 0) ? "비밀번호는 8자 이상 입니다." : " "} </span>
                     </li>
-                    <li className = "join-form__input-list">
+                    <li className="join-form__input-list">
                         <input
                             className="join-form__input"
                             placeholder={this.props.data[2].placeholder}
@@ -63,10 +63,10 @@ class MemberInfo extends React.Component {
                             name={this.props.data[2].name}
                             onChange={this.handleChange}>
                         </input>
-                        <span>{ (repwdErrMsg) < 8 && (repwdErrMsg > 0) ? "비밀번호는 8자 이상 입니다." : " "} </span>
-                        <span>{ (pwdVal !== repwdVal) && (repwdErrMsg) >= 8 ? "비밀번호가 일치하지 않습니다.": ""}   </span>
+                        <span>{(repwdErrMsg) < 8 && (repwdErrMsg > 0) ? "비밀번호는 8자 이상 입니다." : " "} </span>
+                        <span>{(pwdVal !== repwdVal) && (repwdErrMsg) >= 8 ? "비밀번호가 일치하지 않습니다." : ""}   </span>
                     </li>
-                    <li className = "join-form__input-list">
+                    <li className="join-form__input-list">
                         <input
                             className="join-form__input"
                             placeholder={this.props.data[3].placeholder}

@@ -5,6 +5,8 @@ import PhoneInfo from '../../Components/SignupPage/PhoneInfo/PhoneInfo'
 import TermsAndCondition from '../../Components/SignupPage/TermsAndCondition/TermsAndCondition'
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
+import { Link, withRouter } from 'react-router-dom';
+
 class SignUp extends React.Component {
     constructor(props) {
         super(props)
@@ -55,9 +57,11 @@ class SignUp extends React.Component {
                 nickname: ""
             },
             certify: {
-                phoneNumber: "",
-                certificateNum: ""
-            }
+                phoneNumber: "1",
+                certificateNum: "1",
+                phoneNumberSave: "1"
+            },
+            checkingPhoneNum: "1",
         };
     }
 
@@ -67,11 +71,29 @@ class SignUp extends React.Component {
         })
     }
 
-    handleCheck = (event) => {
+    handleInput = (input) => {
+        this.setState({
+            certify: input
+        })
+        console.log("is input transfered well?===", this.state.certify)
+    }
+
+    handleCertification = (number) => {
+        console.log("Is handle Certi working", number)
+        this.setState({
+            checkingPhoneNum: number
+        })
+        console.log("is certified phone num?===", this.state.checkingPhoneNum)
+    }
+
+
+
+    handleCheck = () => {
         // console.log(this.state.information.pwd)
-        event.preventDefault();
+        // event.preventDefault();
         const { personalInformation } = this.state
-        if (personalInformation.pwd === personalInformation.repwd) {
+        if ((personalInformation.pwd === personalInformation.repwd) &&
+            (this.state.certify.phoneNumber === this.state.checkingPhoneNum)) {
             return fetch('http://10.58.2.201:8004/user/signup', {
                 method: 'POST',
                 header: {
@@ -80,7 +102,10 @@ class SignUp extends React.Component {
                 body: JSON.stringify({
                     'email': this.state.personalInformation.email,
                     'password': this.state.personalInformation.pwd,
-                    'nickname': this.state.personalInformation.nickname
+                    'nickname': this.state.personalInformation.nickname,
+                    'authorized_phone_number': this.state.checkingPhoneNum,
+                    'notification_accept': true
+
                 })
             })
                 .then(response => response.json())
@@ -109,7 +134,7 @@ class SignUp extends React.Component {
     //     })
     //         .then(response => response.json())
     //         .then(response => console.log(response))
-    // }
+    // }  
 
 
     render() {
@@ -120,49 +145,41 @@ class SignUp extends React.Component {
         console.log('render=====', this.state.personalInformation)
         return (
             <div>
-            <Header />
-            <div className="join-form-container">
-                <form >
-                    <div className="join-form">
-                        <div className="join-form__member-info">
-                            <strong className="join-form__text-box">회원정보 입력</strong>
-                            <MemberInfo
-                                data={this.state.memberInformation}
-                                onSave={this.handleSave} />
+                <Header />
+                <div className="join-form-container">
+                    <form >
+                        <div className="join-form">
+                            <div className="join-form__member-info">
+                                <strong className="join-form__text-box">회원정보 입력</strong>
+                                <MemberInfo
+                                    data={this.state.memberInformation}
+                                    onSave={this.handleSave} />
+                            </div>
+                            <div className="join-form__phone-verification">
+                                <strong className="join-form__text-box">휴대폰 인증</strong>
+                                <PhoneInfo
+                                    data={this.state.phoneInformation}
+                                    check={this.handleCertification}
+                                    onInput={this.handleInput}
+                                />
+                                <p className="join-form__text-box-small">    인증번호가 도착하지 않았을 경우 '인증'버튼을 다시 눌러주세요. </p>
+                            </div>
+                            <strong className="join-form__text-box">약관동의</strong>
+                            <TermsAndCondition />
+                            <Link
+                                to='/'>
+                                <button className="join-form__submit-bttn"
+                                    onClick={this.handleCheck}>
+                                    회원가입 완료
+                                </button>
+                            </Link>
                         </div>
-                        <div className="join-form__phone-verification">
-                            <strong className="join-form__text-box">휴대폰 인증</strong>
-                            <PhoneInfo
-                                data={this.state.phoneInformation}
-                            />
-                            <p className="join-form__text-box-small">    인증번호가 도착하지 않았을 경우 '인증'버튼을 다시 눌러주세요. </p>
-                        </div>
-                        <strong className="join-form__text-box">약관동의</strong>
-                        <div className="join-form__terms-condition">
-                            <input className="join-form__terms-button" type="checkbox" id="1" />
-                            <label className="join-form__terms-label" for="1">
-                                <span className="join-form__terms-span"></span>
-                                전체동의
-                    </label>
-                        </div>
-                        <TermsAndCondition text="이용약관 (필수)" link="https://www.yogiyo.co.kr/mobile/?gclid=CjwKCAjwo9rtBRAdEiwA_WXcFvk8DXxa71_aj5DrBmVi-DtidZLkKN-uSsFatNl9GwDWeVVNrPy7SxoCf-EQAvD_BwE#/policy" />
-                        <TermsAndCondition text="개인정보 수집 및 이용동의 (필수)" link="https://www.yogiyo.co.kr/mobile/?gclid=CjwKCAjwo9rtBRAdEiwA_WXcFvk8DXxa71_aj5DrBmVi-DtidZLkKN-uSsFatNl9GwDWeVVNrPy7SxoCf-EQAvD_BwE#/collect_join/" />
-                        <TermsAndCondition text="만 14세 이상 이용자 (필수)" link="https://www.yogiyo.co.kr/p/faq/#4-4/" />
-                        <div className="join-form__terms-condition1">
-                            <input className="join-form__terms-button" type="checkbox" id="1" />
-                            <label className="join-form__terms-label" for="1">
-                                <span className="join-form__terms-span"></span>
-                                요기요 혜택알림 동의 (선택)
-                    </label>
-                        </div>
-                        <button className="join-form__submit-bttn" onClick={this.handleCheck}>회원가입 완료</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
         )
     }
 }
-export default SignUp;
+export default withRouter(SignUp);
 

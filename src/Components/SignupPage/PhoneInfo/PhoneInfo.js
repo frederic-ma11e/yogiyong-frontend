@@ -5,24 +5,59 @@ class PhoneInfo extends React.Component {
         super(props)
         this.state = {
             phoneNumber: "",
-            certificateNum: ""
+            certificateNum: "",
+            phoneNumberSave: ""
         }
     }
 
     handleCertification = (event) => {
-        const input = [event.target.name]
+        // const input = [event.target.name]
         this.setState({
             [event.target.name]: event.target.value
         })
-        console.log("certification")
+        this.props.onInput(this.state)
+
     }
 
     handleClick = (event) => {
         console.log(event.target)
         if (event.target.textContent === "인증") {
-            console.log("인증")
-        } else if (event.target.textContent === "확인")
+            return fetch('http://10.58.2.201:8004/user/auth/send', {
+                method: 'POST',
+                header: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    'phone_number': this.state.phoneNumber,
+                })
+            })
+                .then(response => response.json())
+            // .then(response => console.log("phoneNumberSave===", response))
+        } else if (event.target.textContent === "확인") {
             console.log("확인")
+            fetch('http://10.58.2.201:8004/user/auth/confirm', {
+                method: 'POST',
+                header: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    'phone_number': this.state.phoneNumber,
+                    'auth_number': this.state.certificateNum
+                })
+            })
+                .then(response => response.json())
+                .then(response =>
+                // console.log("certiNum And phoneNum ===", response)
+                {
+                    console.log("certiNum And phoneNum ===", response)
+                    this.setState({
+                        phoneNumberSave: response.authorized_phone_number
+                    })
+                    this.props.check(this.state.phoneNumberSave)
+                }
+                )
+        }
+        console.log("certifiNum===", this.state.phoneNumberSave)
     }
 
     // }
@@ -46,8 +81,8 @@ class PhoneInfo extends React.Component {
 
     render() {
         console.log("thisState===", this.state)
-        console.log(("thisState ===", this.props))
-        console.log(this.state.phoneNumber.length)
+        console.log(("thisState ", this.props))
+        console.log(this.state.phoneNumber)
         return (
             <ul className="join-form__input-list-group">
                 {this.props.data.map((info, index) => (
