@@ -2,7 +2,11 @@
   max-width: 680px;
   padding: 20px 10px 30px;
   min-height: 468px;
-
+  @media screen and(max-width: 1020px){
+    display: block;
+    padding: 0;
+    max-width: 100%;
+} 
   &__title{
     width: inherit;
     height: 41.6px;
@@ -87,6 +91,11 @@
       color: rgb(134, 134, 134);
       font-size: 14px;
       font-family: 맑은고딕;
+      width: 100%;
+      @media screen and(max-width: 1020px){
+        flex-direction: column;
+        margin: 0;
+    } 
     }
 
     .pay-title{

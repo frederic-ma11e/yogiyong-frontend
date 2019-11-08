@@ -1,3 +1,4 @@
+
 .category-container{
   width: 100%;
   overflow:auto; 
@@ -9,14 +10,22 @@
     height: 100%;
     margin: 0px auto;
     padding: 5px;
-  
+    
     &--block {
       float: left;
-      width: 252.5px;
+      width: 25%;
       height: 230px;
       padding: 0px 5px;
       position: relative;
-      
+      @media screen and(max-width: 994px){
+          width: 33%;
+      } 
+      @media screen and(max-width: 768px){
+        width: 50%;
+    } 
+    @media screen and(max-width: 510px){
+      width: 100%;
+  } 
       .category-container--a{
         width: 242.5px;
         height: 220px;
@@ -24,7 +33,7 @@
         background-color: #ffffff;
         margin:5px 0px;
         cursor: pointer;
-        
+           
         .category-title{
           position: absolute;
           height: 21.6px;
@@ -49,4 +58,4 @@
       }
     }
   }
-}
+}   

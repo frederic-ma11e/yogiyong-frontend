@@ -1,0 +1,271 @@
+
+div {
+    header {
+        width: 614px;
+        height: 60px;
+        padding: 16px;
+        position: relative;
+        border: solid 1px #dbdbdb;
+
+        .ImageContainer {
+            width: 32px;
+            height: 32px;
+
+            .profileImg {
+                width: 32px;
+                height: 32px;
+                border-radius: 16px;
+                border: solid 1px #dbdbdb;
+            }
+        }
+        .profileNmaeContainer {
+            height: 32px;
+            width: 534px;
+            position: absolute;
+            right: 15px;
+            top: 14px;
+
+            .local,
+            .name {
+                color: #262626;
+                font-family: -apple-system,BlinkMacSystemFont;
+                font-size: 11px;
+                position: absolute;
+                top: 15px;
+            }
+
+            .name {
+                margin: 0 0 0 -5px;
+                padding: 0 0 0 5px;
+                font-weight: 600;
+                font-size: 13.9px;
+                top: 0;
+            }
+        }
+
+        .pointSpan,
+        button {
+            width: 40px;
+            height: 40px;
+            border: 0;
+            position: absolute;
+            top: 9px;
+            right: 10px;
+
+            .pointSpan {
+                top: 3px;
+                right: 7px;
+                color: #262626;
+                font-weight: bold;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .photoContainer {
+        width: 614px;
+        height: 443px;
+        // background-image: url(../../img/son_profile_image.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    .contentContainer {
+        width: 100%;
+        height: 233.3px;
+        border-left: solid 1px #dbdbdb;
+        border-right: solid 1px #dbdbdb;
+
+        .contentButtonContainer {
+            width: 614px;
+            height: 40px;
+            margin: 4px 0 0;
+            padding: 0 16px;
+            position: relative;
+
+            .ContentHeartIcon {
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                top: 5px;
+            }
+
+            .ContentCommentIcon {
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                top: 5px;
+                left: 57px;
+            }
+
+            .ContentShareIcon {
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                top: 5px;
+                left: 102px;
+            }
+
+            .ContentSaveIcon {
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                top: 5px;
+                right: 11px;
+            }
+        }
+    }
+    .likeCountContainer {
+        width: 614px;
+        height: 17.6px;
+        margin: 0 0 8px;
+        padding: 0 16px;
+
+        .likeCounter {
+            color: #262626;
+            font-weight: 600;
+            font-family: -apple-system,BlinkMacSystemFont;
+            font-size: 15px;
+        }
+    }
+
+    .CommentContainer {
+        width: 614px;
+        height: 133.5px;
+        padding: 0 16px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+
+        .name {
+            color: #262626;
+            margin: 0 0 0 -5px;
+            padding: 0 0 0 5px;
+            font-weight: 600;
+            font-family: -apple-system,BlinkMacSystemFont;
+            font-size: 13.9px;
+        }
+
+        .content {
+            font-family: -apple-system,BlinkMacSystemFont;
+            font-size: 13.5px;
+            color: #262626;
+        }
+
+        .block-div {
+            width: 140.7px;
+            height: 19.7px;
+            margin-bottom: 4px;
+
+            .allCommentShow {
+                width: 140.7px;
+                height: 19.7px;
+                border: none;
+                background-color: transparent;
+                font-family: -apple-system,BlinkMacSystemFont;
+                font-size: 14px;
+                color: #999999;
+                margin-left: -3px;
+            }
+        }
+
+        .listCommentNameAndContent {
+            width: 584px;
+            height: 22.6px;
+            margin: -5px -2px 0 0;
+            padding: 5px 2px 0 0;
+            list-style: none;
+
+            .listComenetName {
+                height: 17.6px;
+                color: #262626;
+                margin: 0 4px 0 -5px;
+                padding: 0 0 0 5px;
+                font-family: -apple-system,BlinkMacSystemFont;
+                font-size: 13.9px;
+                font-weight: 600;
+            }
+
+            .listComentContent {
+                font-family: -apple-system,BlinkMacSystemFont;
+                font-size: 13.5px;
+                color: #262626;
+            }
+        }
+    }
+    .timeContainer {
+        width: 614px;
+        height: 19.2px;
+        margin: 0 0 4px;
+        padding: 0 0 0 16px;
+
+        .timeIs {
+            color: #999999;
+            font-size: 10px;
+        }
+    }
+
+}
+
+.rating {
+    width: 100%;
+    height: 111px;
+    background-color: white;
+    border-bottom:1px solid #e6e6e6 ;
+
+    .rating-frame{
+        margin:10px;
+        width: 100%;
+        height: 28px;
+        display: flex;
+        flex-direction: row;
+        
+        .rating-box{            
+            display: inline-block;
+          
+            .rating-title{
+                margin:0px;
+                font-size: 22px;
+                font-weight: bold;
+                font-family: 맑은고딕;
+                display: inline-block;
+
+                &.delivery{
+                    font-size: 15px;
+                } 
+            }
+            
+            .starbox{
+                margin-left: 10px;
+                color: black;
+                background-image: url('../../Images/five-star-image.jpg');
+                background-size: 80%;
+                background-position: 0px -10px;
+                display: inline-block;
+                width: 200px;
+                height: 28px;
+                background-repeat: no-repeat;
+            }
+        }
+    
+    }
+    
+}
+.myCommentBox {
+    margin-left: 10px;
+    min-height: 50px;
+    width: 90%;
+    border: none;
+    font-family: -apple-system,BlinkMacSystemFont;
+    font-size: 13px;
+}
+
+.myCommentSubmitButton {
+    width: 5%;
+    color: red;
+
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0.4;
+    border: none;
+    background: transparent;
+}
+

@@ -28,8 +28,10 @@
       height: 62px;
       float: right;
       margin: 5px 10px 0px 0px;
-
-      &__login-button {
+      @media screen and(max-width: 458px){
+        display: none;
+    } 
+      &__login-button{
         font-size: 18px;
         float: left;
         width: 150px;
@@ -39,6 +41,7 @@
         border: 1px solid white;
         background-color: $Color-1;
         color: white;
+      
       }
 
       &__order-button {
@@ -50,6 +53,7 @@
         float: right;
         background-color: $Color-2;
         color: white;
+        
       }
     }
   }

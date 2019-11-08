@@ -9,7 +9,7 @@ import '../../Components/RestaurantInfoPage/HorizonMenu.scss'
 import RestaurantInfoCategory from '../../Components/RestaurantInfoCategory'
 import Footer from '../../Components/Footer'
 import SideCart from "../../Components/FoodOrderPage/FoodOrderList/SideCart";
-
+import Review from '../../Components/Review';
 class RestaurantInfo extends Component {
     constructor(){
         super()
@@ -101,6 +101,9 @@ class RestaurantInfo extends Component {
     }
     if (this.state.menuTabs.infoTab) {
       menuTabItems = <Infodetail info={this.state.restaurantInfo} />;
+    }
+    if(this.state.menuTabs.reviewTab){
+        menuTabItems = <Review/>
     }
         
         //style={{backgroundImage:`url(${this.props.image})`}}

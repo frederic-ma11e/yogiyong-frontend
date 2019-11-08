@@ -67,13 +67,17 @@ class FoodOrderPage extends Component {
       <div className="root">
         <Header/>
           <div className="food-order-main">
+            <div className="food-order-media">
             <FoodOrderContainer setAddress={this.setAddress} detailAddress={this.detailAddress} phone={this.phone} setRequest={this.setRequest} setPayment={this.setPayment}/>
+            </div>
+            <div className='order-list-media'>
             <OrderList clientHeight={clientHeight} pageHeight={pageHeight} 
             addressData={this.state.address}
             detailAddressData={this.state.detailAddress}
             phoneData={this.state.phone}
             requestData={this.state.request}
             paymentData={this.state.payment}/>
+            </div>
           </div>
           <div className="food-order-footer">
         <Footer/>

@@ -1,0 +1,55 @@
+.review-container{
+  width: 100%;
+  
+  background-color: white; 
+
+
+  .show-review {
+    width: 100%;
+    
+    padding: 20px 16px 16px;
+    margin: 0px 0px -1px;
+    font-family: 맑은고딕;
+    font-size: 14px;
+  
+    .star-point {
+      color: #999999;
+      font-size: 12px;
+      font-family: 맑은고딕;
+      padding: 0px  5px 0px 0px;
+      display: inline-block;
+      .review-star-icon{
+        background-image: url('../../Images/sprite-icon.png');
+        background-position: -2px -42px;
+        background-size: 185px;
+        width: 15px;
+        height: 12px;
+        background-color: white;
+        display: inline-block;
+      }
+
+      .review-star-count{
+        color: #FFA400;
+      }
+    }
+      .user-name{
+        font-weight: bold;
+        font-size: 16px;
+        font-family: 맑은고딕;
+      }
+      .user-content{
+        .review-order-menu{
+          color: #d1bca4;
+          font-size: 12px;
+          background-size: 10px;
+          padding-right: 15px;
+          margin-top: 10px;
+        }
+        .review-comment{
+          color: #666;
+          padding-top: 5px;
+          font-family: 맑은고딕;
+        }
+      }
+  }
+}
