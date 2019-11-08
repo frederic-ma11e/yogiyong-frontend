@@ -62,6 +62,7 @@ class SignUp extends React.Component {
                 phoneNumberSave: "1"
             },
             checkingPhoneNum: "1",
+            agreed: false
         };
     }
 
@@ -104,7 +105,7 @@ class SignUp extends React.Component {
                     'password': this.state.personalInformation.pwd,
                     'nickname': this.state.personalInformation.nickname,
                     'authorized_phone_number': this.state.checkingPhoneNum,
-                    'notification_accept': true
+                    'notification_accept': this.state.agreed
 
                 })
             })
@@ -135,7 +136,11 @@ class SignUp extends React.Component {
     //         .then(response => response.json())
     //         .then(response => console.log(response))
     // }  
-
+    pushAgree = (did) => {
+        this.setState({
+            agreed: did
+        })
+    }
 
     render() {
         console.log('email=====', this.state.personalInformation.email)
@@ -165,7 +170,7 @@ class SignUp extends React.Component {
                                 <p className="join-form__text-box-small">    인증번호가 도착하지 않았을 경우 '인증'버튼을 다시 눌러주세요. </p>
                             </div>
                             <strong className="join-form__text-box">약관동의</strong>
-                            <TermsAndCondition />
+                            <TermsAndCondition agreement={this.pushAgree} />
                             <Link
                                 to='/'>
                                 <button className="join-form__submit-bttn"
