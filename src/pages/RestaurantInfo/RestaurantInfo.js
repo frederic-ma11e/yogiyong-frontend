@@ -81,7 +81,7 @@ class RestaurantInfo extends Component {
 
         let pathName = document.location.pathname;
         let id = pathName.split("/")[2]
-        fetch(`http://10.58.3.24:8000/restaurant/${id}`)
+        fetch(`http://10.58.4.208:8000/restaurant/${id}`)
         .then(res=>{
             return res.json()})
         .then(res =>

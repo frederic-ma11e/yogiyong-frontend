@@ -13,7 +13,7 @@ class FoodOrderModal extends Component {
     this.state = {
       count: 1,
       price: 0,
-      // foodOrder: [],
+      foodOrder: [],
       test: true
     };
     
@@ -97,7 +97,7 @@ class FoodOrderModal extends Component {
             <div className="detail-content-price">
               <strong className="price-strong">가격</strong>
               <div className="detail-content-price__binding">
-                {price * count}원
+              {price * count}
               </div>
             </div>
             <div className="detail-content-quantity-control">
@@ -115,7 +115,7 @@ class FoodOrderModal extends Component {
               <strong className="total-strong">총 주문 금액</strong>
               <div className="detail-content-total-binding">
                 <strong className="total-price-strong">
-                  {price * count}원
+                {price * count}
                 </strong>
                 <span className="min-price">(최소주문금액 10,000원)</span>
               </div>

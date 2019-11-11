@@ -27,7 +27,7 @@ class StoreList extends React.Component {
     }
 
     handleRender = (cat_id) => {
-        axios(`http://10.58.3.24:8000/restaurant/category/${cat_id}?order_method=review_avg&pageNum=0`)
+        axios(`http://10.58.4.208:8000/restaurant/category/${cat_id}?order_method=review_avg&pageNum=0`)
             .then(res => {
                 console.log("date from fetch===", res)
                 this.setState({
@@ -48,7 +48,7 @@ class StoreList extends React.Component {
             })
         }
         const { categoryId } = this.props.match.params
-        axios(`http://10.58.3.24:8000/restaurant/category/${categoryId}?order_method=review_avg&pageNum=${this.state.additionalRenderNum}`)
+        axios(`http://10.58.4.208:8000/restaurant/category/${categoryId}?order_method=review_avg&pageNum=${this.state.additionalRenderNum}`)
             .then(res => {
             
                 if (res.data.restaurants) {
@@ -68,12 +68,12 @@ class StoreList extends React.Component {
     }
     componentDidMount() {
         window.scrollTo(0, 0)
-        axios('http://10.58.3.24:8000/restaurant')
+        axios('http://10.58.4.208:8000/restaurant')
             .then(res => {
                 this.setState({ categories: res.data.categories })
             })
         const { categoryId } = this.props.match.params
-        axios(`http://10.58.3.24:8000/restaurant/category/${categoryId}?order_method=review_avg&pageNum=${this.state.additionalRenderNum}`)
+        axios(`http://10.58.4.208:8000/restaurant/category/${categoryId}?order_method=review_avg&pageNum=${this.state.additionalRenderNum}`)
 
             .then(res => {
                 console.log("new axios===", res)

@@ -3,7 +3,7 @@
 
 * {
   padding: 0;
-  margin: 0;
+  // margin: 0;
   box-sizing: border-box;
   font-size: 14px;
 }
@@ -11,21 +11,30 @@
   background-color: #fafafa;
 }
 .restaurantInfo-Flex {
+  // justify-content: center;
+  // align-items: flex-start;
   display: flex;
-  justify-content: center;
-  //align-items: flex-start;
-  position: relative;
+  flex-direction: row;
+  // float: left;
   max-width: 1020px;
   width: 100%;
-  margin: 10px auto;
+  // margin-top: 10px;
+  // margin-left:10px;
+  // margin-right: auto;
+  margin-right:499;
+  margin-left: 0px;
+  
+.restaurantContainer {
+  width: 680px;
+  padding: 10px;
+  position: relative;
+  right: 120px;
+  // float: left;
+  // display: inline-block;
 }
 
-.restaurantContainer {
-  width: 100%;
-  padding: 10px;
-  //margin: auto;
-  //float: left;
-}
+  
+
 
 .restaurant {
   min-width: 320px;
@@ -116,36 +125,37 @@
     }
   }
 }
+}
 .paymentMethod {
   margin-left: 5px;
 }
 .paymentRed {
   color: red;
 }
-@media only screen and (max-width: 770px) {
-  .restaurantContainer {
-    width: 730px;
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-}
+// @media only screen and (max-width: 770px) {
+//   .restaurantContainer {
+//     width: 730px;
+//     margin-left: 15px;
+//     margin-right: 15px;
+//   }
+// }
 
-@media only screen and (min-width: 290px) {
-  .restaurantContainer {
-    width: 100%;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-  * {
-    font-size: 12px;
-  }
-  li {
-    font-size: 11px;
-  }
-}
+// @media only screen and (min-width: 290px) {
+//   .restaurantContainer {
+//     width: 100%;
+//     margin-left: 5px;
+//     margin-right: 5px;
+//   }
+//   * {
+//     font-size: 12px;
+//   }
+//   li {
+//     font-size: 11px;
+//   }
+// }
 
-@media (min-width: 992px) {
-  .restaurantContainer {
-    width: 970px;
-  }
-}
+// @media (min-width: 992px) {
+//   .restaurantContainer {
+//     width: 970px;
+//   }
+// }

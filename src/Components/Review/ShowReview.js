@@ -8,7 +8,7 @@ class ShowReview extends Component {
   };
   componentDidMount() { 
      let id = 1;
-    fetch(`http://10.58.2.201:8004/review/view/${id}`)
+    fetch(`http://10.58.4.208:8004/review/view/${id}`)
       .then(res => {
         return res.json();
       })

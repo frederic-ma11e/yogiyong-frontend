@@ -19,7 +19,7 @@ class OrderList extends Component {
   };
 
   handleClick= () =>{
-    fetch("http://10.58.2.201:8004/order", {
+    fetch("http://10.58.4.208:8004/order", {
       method: "post",
       body: JSON.stringify({
         user_phone_number:this.props.phoneData, 

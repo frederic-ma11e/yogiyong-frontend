@@ -39,7 +39,7 @@ class CommentForm extends Component {
 
   POST = (postStar1,postStar2,postStar3) => {
       let id =1
-    fetch(`http://10.58.2.201:8004/review/register/${id}`, {
+    fetch(`http://10.58.4.208:8004/review/register/${id}`, {
         method: "post",
         headers:{
             Authorization:'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.SccJ5ACg7ObvzW6dNipS_ehN2k0oVd5b3TqTkBWBz1M'

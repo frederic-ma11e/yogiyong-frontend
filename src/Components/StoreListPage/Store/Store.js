@@ -79,7 +79,7 @@ class Store extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://10.58.2.209:8000/restaurant/category/1/order_by/general')
+        fetch('http:/10.58.4.208:8000/restaurant/category/1/order_by/general')
             .then(res => res.json())
             // .then( res => console.log(res))
             .then(res =>
