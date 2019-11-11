@@ -4,10 +4,12 @@
 .sideCartContainer {
   width: 330px;
   position: sticky;
-  //float: left;
+  // float: right;
+  // display: inline-block;
   margin-top: 10px;
   top: 10px;
   height: 100%;
+right: 240px;
 
   &__order-btn {
     width: 100%;
@@ -236,8 +238,8 @@
 //   }
 // }
 
-@media only screen and (max-width: 770px) {
-  .sideCartContainer {
-    display: none;
-  }
-}
+// @media only screen and (max-width: 770px) {
+//   .sideCartContainer {
+//     display: none;
+//   }
+// }

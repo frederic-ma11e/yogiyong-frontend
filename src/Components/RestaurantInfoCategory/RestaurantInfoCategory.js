@@ -36,7 +36,7 @@ class RestaurantInfoCategory extends Component {
   }
 
   componentDidMount() {
-    const API = `http://10.58.3.24:8000${document.location.pathname}`;
+    const API = `http://10.58.4.208:8000${document.location.pathname}`;
 
     fetch(API)
       .then(res => res.json())

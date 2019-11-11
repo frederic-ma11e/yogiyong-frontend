@@ -3,24 +3,24 @@
     max-width: 1020px;
     margin: 0 auto;
 
-    @media screen and(max-width: 1020px){
+  //   @media screen and(max-width: 1020px){
       
-      flex-direction: column;
-      margin: 0;
-  } 
+  //     flex-direction: column;
+  //     margin: 0;
+  // } 
     .food-order-media{
 
-      @media screen and(max-width: 1020px){
+    //   @media screen and(max-width: 1020px){
         
-        width: 100%;
-    } 
+    //     width: 100%;
+    // } 
     }
 
     .order-list-media{
 
-      @media screen and(max-width: 1020px){
-        display: block;
-        width: 100%;
-    } 
+    //   @media screen and(max-width: 1020px){
+    //     display: block;
+    //     width: 100%;
+    // } 
     }
 }
