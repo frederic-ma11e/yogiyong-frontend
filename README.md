@@ -48,6 +48,7 @@
   <li>사용자 리뷰 CRUD 기능 구현</li>
     <li>cra로 프로젝트 생성 및 common css, eslint (airbnb convention 참조) 그리고 prettier 설치</li>
   <li>NODE_PATH src로 설정 후 절대경로 사용</li>
+  <li>Scrum 기반 에자일 활용한 협업: 팀원들간 TRELLO를 활용하여 1주 간격 스프린트 기준의 스크럼 방식으로 프로젝트 진행</li>
 </ul>
 
 ## 데모 영상
